@@ -111,10 +111,7 @@ h2 {
 }
 
 .brand small {
-  color: var(--gold);
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
+  display: none;
 }
 
 .nav-menu {
@@ -1342,6 +1339,22 @@ textarea {
   display: none;
 }
 
+@keyframes brandLightSweep {
+  0%,
+  38% {
+    transform: translateX(0) skewX(-18deg);
+    opacity: 0;
+  }
+  48% {
+    opacity: 0.9;
+  }
+  72%,
+  100% {
+    transform: translateX(410%) skewX(-18deg);
+    opacity: 0;
+  }
+}
+
 .auth-switch {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1820,17 +1833,47 @@ textarea {
   }
 
   .nav {
-    min-height: 60px;
+    min-height: 86px;
     justify-content: center;
   }
 
+  .brand {
+    flex-direction: column;
+    gap: 3px;
+  }
+
   .brand img {
-    width: 62px;
-    height: 44px;
+    width: 82px;
+    height: 56px;
+    filter: drop-shadow(0 0 16px rgba(215, 173, 84, 0.38));
   }
 
   .brand strong {
-    font-size: 16px;
+    display: none;
+  }
+
+  .brand small {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    color: var(--gold-2);
+    font-family: Cinzel, Georgia, serif;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.24em;
+    line-height: 1;
+    text-transform: uppercase;
+    text-shadow: 0 0 18px rgba(215, 173, 84, 0.32);
+  }
+
+  .brand small::after {
+    content: "";
+    position: absolute;
+    inset: -20% auto -20% -45%;
+    width: 38%;
+    background: linear-gradient(90deg, transparent, rgba(255, 248, 232, 0.82), transparent);
+    transform: skewX(-18deg);
+    animation: brandLightSweep 3.2s ease-in-out infinite;
   }
 
   .mobile-app-nav {
