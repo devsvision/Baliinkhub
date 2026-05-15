@@ -609,12 +609,18 @@ textarea {
 }
 
 .pill {
+  display: inline-flex;
+  width: fit-content;
   border-radius: 999px;
   background: rgba(215, 173, 84, 0.14);
   color: var(--gold-2);
   padding: 7px 10px;
   font-size: 12px;
   font-weight: 900;
+}
+
+.pill + h3 {
+  margin-top: 12px;
 }
 
 .tabs,
