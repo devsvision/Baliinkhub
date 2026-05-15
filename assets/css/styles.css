@@ -1965,7 +1965,7 @@ textarea {
   }
 
   .brand span {
-    display: none;
+    display: block;
   }
 
   .hero {
