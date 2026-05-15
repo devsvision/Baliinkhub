@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="BALI INK HUB is a Bali tattoo marketplace to discover verified tattoo artists, compare styles, view services, and request bookings."
+    />
+    <meta name="keywords" content="Bali tattoo artist, Canggu tattoo, tattoo booking Bali, Bali Ink Hub, tattoo marketplace" />
+    <meta name="theme-color" content="#070403" />
+    <meta property="og:title" content="BALI INK HUB - Bali Tattoo Marketplace" />
+    <meta property="og:description" content="Find verified tattoo artists across Bali, from Canggu to Singaraja." />
+    <meta property="og:image" content="assets/images/logo.png" />
+    <title>BALI INK HUB | Bali Tattoo Marketplace</title>
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header" id="top">
+      <div class="container nav">
+        <a class="brand" href="#top" aria-label="BALI INK HUB home">
+          <img src="assets/images/logo.png" alt="BALI INK HUB logo" />
+          <span>
+            <strong>BALI INK HUB</strong>
+          </span>
+        </a>
+
+        <button class="nav-toggle" type="button" data-nav-toggle aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+
+        <nav class="nav-menu" data-nav-menu>
+          <a href="#categories">Categories</a>
+          <a href="#services">Services</a>
+          <a href="#artists">Artists</a>
+          <a href="#how">How it works</a>
+          <a href="#reviews">Reviews</a>
+        </nav>
+
+        <div class="nav-actions">
+          <button class="ghost-btn" type="button" data-open-login>Sign in</button>
+          <a class="gold-btn" href="#booking">Join us</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="container hero-grid hero-grid--wide">
+          <div class="hero-copy">
+            <div class="eyebrow">Bali-only verified marketplace</div>
+            <h1>Get your next tattoo from trusted Bali artists.</h1>
+            <p>Search by style, area, artist, or budget. Compare portfolios, reviews, and starting prices before requesting a booking.</p>
+
+            <form class="search-panel" data-search-form>
+              <label>
+                <span>What are you looking for?</span>
+                <input type="search" name="query" placeholder="Search realism, dragon, fine line..." />
+              </label>
+              <label>
+                <span>Area</span>
+                <select name="area">
+                  <option value="">All Bali areas</option>
+                </select>
+              </label>
+              <label>
+                <span>Style</span>
+                <select name="style">
+                  <option value="">All styles</option>
+                </select>
+              </label>
+              <button type="submit">Search</button>
+            </form>
+
+            <div class="popular-searches">
+              <span>Popular Searches</span>
+              <button type="button" data-quick-search="Blackwork">Blackwork</button>
+              <button type="button" data-quick-search="Balinese Style">Balinese Style</button>
+              <button type="button" data-quick-search="Japanese">Japanese</button>
+            </div>
+
+            <div class="hero-stats">
+              <article><strong>120+</strong><span>Bookings handled</span></article>
+              <article><strong>20</strong><span>Verified artists</span></article>
+              <article><strong>4.9</strong><span>Average rating</span></article>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="section" id="categories">
+        <div class="container section-head">
+          <div>
+            <span class="eyebrow">Recent category</span>
+            <h2>Checkout our tattoo categories</h2>
+          </div>
+          <a href="#services">View all</a>
+        </div>
+        <div class="container category-grid" data-category-grid></div>
+      </section>
+
+      <section class="section alt" id="services">
+        <div class="container section-head">
+          <div>
+            <span class="eyebrow">Featured services</span>
+            <h2>Clear packages from Bali studios</h2>
+          </div>
+          <a href="#artists">View artists</a>
+        </div>
+        <div class="container service-grid" data-service-grid></div>
+      </section>
+
+      <section class="section" id="popular">
+        <div class="container split-head">
+          <div>
+            <span class="eyebrow">Popular services</span>
+            <h2>Most requested tattoo work</h2>
+          </div>
+          <div class="tabs" data-style-tabs></div>
+        </div>
+        <div class="container compact-service-grid" data-popular-grid></div>
+      </section>
+
+      <section class="section how" id="how">
+        <div class="container section-head centered">
+          <div>
+            <span class="eyebrow">How Bali Ink Hub works</span>
+            <h2>Book with confidence in three steps</h2>
+          </div>
+        </div>
+        <div class="container steps-grid">
+          <article><span>1</span><h3>Search artist or style</h3><p>Use area, style, and budget filters to discover suitable Bali tattoo artists.</p></article>
+          <article><span>2</span><h3>Request a booking</h3><p>Send your concept, size, body placement, preferred date, and reference image.</p></article>
+          <article><span>3</span><h3>Confirm and review</h3><p>Manage the request inside the marketplace, complete your appointment, then review the artist.</p></article>
+        </div>
+      </section>
+
+      <section class="section alt" id="artists">
+        <div class="container section-head">
+          <div>
+            <span class="eyebrow">Popular Artists</span>
+            <h2>Recommended Bali tattoo artists</h2>
+          </div>
+          <div class="artist-switch">
+            <button class="active" type="button" data-artist-filter="recommended">Recommended</button>
+            <button type="button" data-artist-filter="featured">Featured</button>
+          </div>
+        </div>
+        <div class="container artist-grid" data-artist-grid></div>
+      </section>
+
+      <section class="section reviews" id="reviews">
+        <div class="container review-layout">
+          <div>
+            <span class="eyebrow">Genuine reviews</span>
+            <h2>Clients love discovering artists this way.</h2>
+            <p>Inspired by practical service marketplaces: clear listings, visible pricing, verified Artists, and fast booking intent.</p>
+            <div class="trust-score"><strong>Excellent</strong><span>Based on 48 Bali tattoo reviews</span></div>
+          </div>
+          <div class="review-grid" data-review-grid></div>
+        </div>
+      </section>
+
+      <section class="booking-cta" id="booking">
+        <div class="container cta-card">
+          <div>
+            <span class="eyebrow">Become an Artist</span>
+            <h2>Post your tattoo service in a minute</h2>
+            <p>Build your Bali Ink Hub profile with portfolio, style, pricing, availability, policies, and marketplace booking requests.</p>
+          </div>
+          <button class="gold-btn" type="button" data-open-booking>Join as Artist</button>
+        </div>
+      </section>
+
+      <section class="section blog-strip">
+        <div class="container section-head">
+          <div>
+            <span class="eyebrow">Recent blogs</span>
+            <h2>Bali tattoo planning guides</h2>
+          </div>
+        </div>
+        <div class="container blog-grid">
+          <article><span>Guide</span><h3>How to choose your tattoo artist in Bali</h3><p>Compare healed work, hygiene, line quality, communication, and booking clarity.</p></article>
+          <article><span>Aftercare</span><h3>Healing a tattoo in tropical weather</h3><p>Keep the tattoo clean, dry, and protected from sun, pool, and ocean exposure.</p></article>
+          <article><span>Design</span><h3>Balinese motifs with respectful context</h3><p>Ask artists about meaning, placement, and cultural sensitivity before committing.</p></article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-grid">
+        <div>
+          <img src="assets/images/logo.png" alt="BALI INK HUB" />
+          <p>Bali-only tattoo marketplace for clients, artists, studios, and future booking APIs.</p>
+        </div>
+        <div><h3>Marketplace</h3><a href="#categories">Categories</a><a href="#services">Services</a><a href="#artists">Artists</a></div>
+        <div><h3>Areas</h3><a href="#artists">Canggu</a><a href="#artists">Karangasem</a><a href="#artists">Singaraja</a></div>
+        <div><h3>Account</h3><button type="button" data-open-login>Sign in</button><button type="button" data-open-booking>Become Artist</button></div>
+      </div>
+      <div class="container copyright">&copy; 2026 BALI INK HUB. All rights reserved.</div>
+    </footer>
+
+    <dialog class="modal" data-modal="booking">
+      <form method="dialog" class="modal-card" data-booking-form>
+        <button class="modal-close" value="close" aria-label="Close">&times;</button>
+        <span class="eyebrow">Booking request</span>
+        <h2>Request tattoo appointment</h2>
+        <input name="name" required placeholder="Your name" />
+        <input name="contact" required placeholder="Email or marketplace contact" />
+        <select name="artist" required></select>
+        <textarea name="idea" required placeholder="Describe your tattoo idea, size, and body placement"></textarea>
+        <button class="gold-btn" value="submit">Send Request</button>
+      </form>
+    </dialog>
+
+    <dialog class="modal" data-modal="login">
+      <form method="dialog" class="modal-card">
+        <button class="modal-close" value="close" aria-label="Close">&times;</button>
+        <span class="eyebrow">Account</span>
+        <h2>Sign in to Bali Ink Hub</h2>
+        <input type="email" placeholder="Email address" />
+        <input type="password" placeholder="Password" />
+        <button class="gold-btn" value="submit">Sign in</button>
+      </form>
+    </dialog>
+
+    <div class="toast" data-toast></div>
+    <script type="module" src="assets/js/main.js"></script>
+  </body>
+</html>

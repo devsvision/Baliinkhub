@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="BALI INK HUB artist studio page with portfolio, services, pricing, reviews, policies, and marketplace booking request." />
+    <meta name="theme-color" content="#070403" />
+    <title>Artist Studio | BALI INK HUB</title>
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header" id="top">
+      <div class="container nav">
+        <a class="brand" href="index.html" aria-label="BALI INK HUB home">
+          <img src="assets/images/logo.png" alt="BALI INK HUB logo" />
+          <span><strong>BALI INK HUB</strong></span>
+        </a>
+
+        <button class="nav-toggle" type="button" data-nav-toggle aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+
+        <nav class="nav-menu" data-nav-menu>
+          <a href="index.html#categories">Categories</a>
+          <a href="index.html#services">Services</a>
+          <a href="index.html#artists">Artists</a>
+          <a href="#studio-services">Studio Services</a>
+          <a href="#studio-reviews">Reviews</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a class="ghost-btn" href="index.html#artists">Back</a>
+          <button class="gold-btn" type="button" data-open-studio-booking>Request Booking</button>
+        </div>
+      </div>
+    </header>
+
+    <main data-studio-root>
+      <section class="studio-loading container">Loading artist studio...</section>
+    </main>
+
+    <dialog class="modal" data-modal="studio-booking">
+      <form method="dialog" class="modal-card" data-studio-booking-form>
+        <button class="modal-close" value="close" aria-label="Close">&times;</button>
+        <span class="eyebrow">Marketplace request</span>
+        <h2>Request this artist</h2>
+        <input name="name" required placeholder="Your name" />
+        <input name="contact" required placeholder="Email or marketplace contact" />
+        <select name="service" required data-studio-service-select></select>
+        <input name="date" type="date" required />
+        <textarea name="idea" required placeholder="Tattoo idea, placement, size, budget, and reference notes"></textarea>
+        <button class="gold-btn" value="submit">Send Marketplace Request</button>
+      </form>
+    </dialog>
+
+    <div class="toast" data-toast></div>
+    <script type="module" src="assets/js/studio.js"></script>
+  </body>
+</html>
