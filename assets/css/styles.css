@@ -1388,8 +1388,9 @@ textarea {
 .splash-inner img {
   width: clamp(118px, 28vw, 168px);
   height: auto;
-  filter: drop-shadow(0 0 28px rgba(215, 173, 84, 0.34));
-  animation: splashLogoReveal 1450ms ease both, splashLogoGlow 2.6s ease-in-out 1300ms infinite;
+  will-change: transform, opacity;
+  filter: drop-shadow(0 0 18px rgba(215, 173, 84, 0.24));
+  animation: splashLogoReveal 900ms ease both, splashLogoFloat 2.8s ease-in-out 900ms infinite;
 }
 
 .splash-inner h1 {
@@ -1403,7 +1404,8 @@ textarea {
   font-size: clamp(20px, 6vw, 42px);
   letter-spacing: clamp(0.08em, 1.7vw, 0.16em);
   text-shadow: 0 0 26px rgba(215, 173, 84, 0.32);
-  animation: splashFade 1200ms ease 260ms both;
+  will-change: transform, opacity;
+  animation: splashFade 760ms ease 180ms both;
 }
 
 .splash-inner h1::after {
@@ -1474,24 +1476,20 @@ textarea {
   from {
     opacity: 0;
     transform: translateY(10px) scale(0.88);
-    filter: drop-shadow(0 0 0 rgba(215, 173, 84, 0));
   }
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
-    filter: drop-shadow(0 0 28px rgba(215, 173, 84, 0.34));
   }
 }
 
-@keyframes splashLogoGlow {
+@keyframes splashLogoFloat {
   0%,
   100% {
     transform: scale(1);
-    filter: drop-shadow(0 0 18px rgba(215, 173, 84, 0.26));
   }
   50% {
-    transform: scale(1.035);
-    filter: drop-shadow(0 0 34px rgba(244, 220, 157, 0.42));
+    transform: scale(1.025);
   }
 }
 
@@ -1501,6 +1499,16 @@ textarea {
   }
   to {
     transform: scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .splash-inner img,
+  .splash-inner h1,
+  .splash-inner h1::after,
+  .splash-loader span {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
   }
 }
 
