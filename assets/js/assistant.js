@@ -23,6 +23,88 @@ const formatIDR = (value) => new Intl.NumberFormat("id-ID", {
   currency: "IDR",
   maximumFractionDigits: 0
 }).format(value);
+const builtInKnowledge = [
+  {
+    keywords: ["hello", "hi", "hey", "good morning", "good afternoon", "good evening"],
+    response: "Hello, I am Devs from BALI INK HUB Customer Service. I can help with tattoo artist discovery, style guidance, booking flow, studio visits, mobile service, preparation, aftercare, pricing expectations, and payment flow."
+  },
+  {
+    keywords: ["safe", "safety", "sterile", "hygiene", "needle", "infection", "clean"],
+    response: "For tattoo safety, choose a verified studio, make sure needles are single-use, equipment is sterile, gloves are worn, and the workspace is clean. Avoid tattooing over irritated skin, fresh wounds, sunburn, or active skin infections."
+  },
+  {
+    keywords: ["prepare", "preparation", "before tattoo", "before appointment", "what should i do"],
+    response: "Before a tattoo appointment, sleep well, eat a proper meal, hydrate, avoid alcohol, avoid heavy sun exposure, and bring design references. Wear comfortable clothing that makes the tattoo placement easy to access."
+  },
+  {
+    keywords: ["pain", "hurt", "painful", "sakit", "pain level"],
+    response: "Tattoo pain depends on placement, size, detail, session length, and personal tolerance. Ribs, sternum, feet, knees, elbows, and inner arm areas are usually more sensitive. Outer arm, shoulder, calf, and upper back are often easier for many clients."
+  },
+  {
+    keywords: ["healing time", "heal", "healing", "aftercare", "peeling", "itchy"],
+    response: "Most tattoos start settling within 2 to 4 weeks, but deeper skin healing can take longer. Mild peeling and itching can be normal. Keep it clean, do not scratch, avoid soaking, and follow the artist's aftercare instructions."
+  },
+  {
+    keywords: ["sun", "beach", "ocean", "pool", "swim", "sauna", "bali weather"],
+    response: "In Bali's tropical weather, protect a fresh tattoo from direct sun, ocean water, pools, and saunas during early healing. Plan beach, surf, pool, and spa activities before the tattoo appointment or after the initial healing phase."
+  },
+  {
+    keywords: ["cover up", "coverup", "fix old tattoo", "old tattoo", "laser"],
+    response: "A cover-up tattoo depends on the old tattoo's size, darkness, placement, and skin condition. Dark or dense tattoos may need a larger design, darker elements, or laser lightening before the best cover-up result."
+  },
+  {
+    keywords: ["touch up", "retouch", "retouching", "faded", "fade"],
+    response: "Touch-ups are common after healing, especially for detailed lines, packed color, or areas that move a lot. Wait until the tattoo is fully healed before asking the artist to review whether a touch-up is needed."
+  },
+  {
+    keywords: ["design", "reference", "idea", "concept", "custom", "placement"],
+    response: "For a strong tattoo concept, prepare references, preferred style, approximate size, body placement, and meaning. A good artist will adapt your idea to flow with the body and age well on skin."
+  },
+  {
+    keywords: ["realism", "realistic", "portrait", "black and grey", "color realism"],
+    response: "Realism tattoos focus on lifelike detail, smooth shading, contrast, and accurate proportions. They usually need enough size to preserve detail, especially for portraits, animals, statues, and cinematic concepts."
+  },
+  {
+    keywords: ["fine line", "micro", "minimalist", "small tattoo"],
+    response: "Fine line and micro tattoos use delicate lines and subtle detail. They can look elegant, but very tiny details may soften over time, so placement, skin type, and design simplification matter."
+  },
+  {
+    keywords: ["blackwork", "blackout", "dotwork", "ornamental", "geometric"],
+    response: "Blackwork, blackout, dotwork, ornamental, and geometric tattoos rely on strong contrast, clean shapes, symmetry, spacing, and skin breaks. They can be bold, elegant, and long-lasting when designed with proper balance."
+  },
+  {
+    keywords: ["japanese", "irezumi", "dragon", "koi", "hannya", "samurai"],
+    response: "Japanese Irezumi often uses strong composition, flowing backgrounds, and motifs like dragons, koi, hannya, samurai, flowers, wind, and waves. Larger placements usually help the design flow better."
+  },
+  {
+    keywords: ["balinese", "bali style", "rangda", "barong", "ornament", "sacred"],
+    response: "Balinese-inspired tattoos can include ornamental patterns, mythology, masks, flora, and cultural symbols. Ask the artist about respectful placement and meaning, especially for sacred or culturally sensitive imagery."
+  },
+  {
+    keywords: ["tribal", "polynesian", "marquesan", "maori"],
+    response: "Tribal and Polynesian-inspired tattoos are built from symbolic patterns, flow, repetition, and body mapping. For culturally rooted designs, discuss meaning and respectful use with an experienced artist."
+  },
+  {
+    keywords: ["booking", "book", "appointment", "schedule", "mobile", "on-demand", "in-studio", "transport"],
+    response: "BALI INK HUB supports two booking modes: In-Studio Experience for visiting the artist's studio, and On-Demand / Mobile Service for appointments at the client's location. Mobile service can include a transport fee based on the selected area."
+  },
+  {
+    keywords: ["payment", "pay", "midtrans", "credit card", "ovo", "dana", "qris", "bank transfer"],
+    response: "The planned payment flow supports credit card through Midtrans, digital wallet options such as OVO, DANA, and QRIS, plus other methods such as bank transfer. Real transactions require backend and payment gateway activation."
+  },
+  {
+    keywords: ["refund", "cancel", "cancellation", "reschedule", "deposit"],
+    response: "Cancellation, reschedule, refund, and deposit rules should be shown clearly before checkout. In a marketplace flow, the safest structure is to keep all booking status, payment proof, and policy records inside the platform."
+  },
+  {
+    keywords: ["price", "cost", "harga", "biaya", "estimate", "quote", "budget"],
+    response: "Tattoo pricing depends on size, complexity, placement, style, artist experience, session length, and whether the service is in-studio or mobile. A final quote usually requires reference images and placement details."
+  },
+  {
+    keywords: ["verify", "verified", "profile", "portfolio", "review", "rating"],
+    response: "A reliable artist profile should show portfolio quality, healed work when available, style focus, studio location, reviews, rating, response time, hygiene standards, and clear booking policies."
+  }
+];
 
 document.addEventListener("DOMContentLoaded", async () => {
   injectAssistantWidget();
@@ -229,41 +311,35 @@ function sendMessage(text) {
 function answer(input) {
   const data = assistantState.marketplace;
   const text = input.toLowerCase();
+  const query = encodeURIComponent(`${input} tattoo Bali`);
+  const knowledge = knowledgeAnswer(text);
 
   if (!data) {
-    return "I can guide the general flow first: choose an artist, click Booking Service, enter your location, choose In-Studio or On-Demand, select a service, schedule a date and time, fill personal information, review cart, choose payment, then confirm.";
+    const fallback = knowledge || "I can guide the general flow first: choose an artist, click Booking Service, enter your location, choose In-Studio or On-Demand, select a service, schedule a date and time, fill personal information, review cart, choose payment, then confirm.";
+    return withGoogleReference(fallback, query);
   }
 
   if (matches(text, ["canggu", "ubud", "seminyak", "denpasar", "sanur", "singaraja", "karangasem", "amed", "kuta", "uluwatu"])) {
-    return areaAnswer(text, data);
+    return withGoogleReference(areaAnswer(text, data), query);
   }
 
   if (matches(text, ["price", "harga", "biaya", "cost", "berapa"])) {
-    return priceAnswer(text, data);
+    return withGoogleReference(priceAnswer(text, data), query);
   }
 
   if (matches(text, ["artist", "artis", "studio", "recommend", "rekomendasi"])) {
-    return artistAnswer(data);
+    return withGoogleReference(artistAnswer(data), query);
   }
 
   if (matches(text, ["style", "kategori", "category", "blackwork", "realism", "fine line", "japanese", "balinese"])) {
-    return styleAnswer(text, data);
+    return withGoogleReference(styleAnswer(text, data), query);
   }
 
-  if (matches(text, ["booking", "book", "mobile", "on-demand", "in-studio", "transport"])) {
-    return "BALI INK HUB supports two service modes: In-Studio Experience for visiting the artist's studio, and On-Demand / Mobile Service for appointments at the client's location. When mobile service is selected, the system adds a transport fee based on the client's area.";
+  if (knowledge) {
+    return withGoogleReference(knowledge, query);
   }
 
-  if (matches(text, ["aftercare", "healing", "sembuh", "rawat", "perawatan"])) {
-    return "General aftercare: keep the tattoo clean, do not scratch it, and avoid direct sun, pools, ocean water, and saunas during the early healing phase. Apply a thin layer of aftercare balm according to the artist's instructions.";
-  }
-
-  if (matches(text, ["payment", "bayar", "midtrans", "ovo", "dana", "qris", "credit"])) {
-    return "The payment flow is prepared for Credit Card via Midtrans, Digital Wallet options such as OVO/DANA/QRIS, and other options such as bank transfer. Real payments will require an active backend and payment gateway integration.";
-  }
-
-  const query = encodeURIComponent(`${input} tattoo Bali`);
-  return generalAnswer(input, query, data);
+  return withGoogleReference(generalAnswer(input, query, data), query);
 }
 
 function areaAnswer(text, data) {
@@ -303,7 +379,16 @@ function generalAnswer(input, query, data) {
     return `${foundService.title} is available as a ${foundService.style} service in ${foundService.area}. Estimated price starts from ${formatIDR(foundService.price)} with a ${foundService.rating.toFixed(1)} rating. Final pricing is usually affected by size, detail, placement, and In-Studio or On-Demand mode.`;
   }
 
-  return `I am Devs, the BALI INK HUB Customer Service. I do not have a specific local database answer for that yet, but I can guide you: use search for area/style, open an artist studio for portfolio and maps, then continue to Booking Service for schedule and payment. Temporary external reference: https://www.google.com/search?q=${query}`;
+  return "I am Devs, the BALI INK HUB Customer Service. I do not have a specific local database answer for that yet, but I can still help you search by area/style, compare studio profiles, review portfolio and maps, then continue to Booking Service for schedule and payment.";
+}
+
+function knowledgeAnswer(text) {
+  const entry = builtInKnowledge.find((item) => matches(text, item.keywords));
+  return entry?.response || "";
+}
+
+function withGoogleReference(response, query) {
+  return `${response}\n\nGoogle reference: https://www.google.com/search?q=${query}`;
 }
 
 function renderMessages() {
