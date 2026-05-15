@@ -146,9 +146,24 @@ function renderStudio(artist, services, reviews) {
           <button class="gold-btn" type="button" data-open-studio-booking>Request Booking</button>
           <a class="ghost-btn" href="index.html#artists">Compare Artists</a>
         </div>
-        <div class="studio-panel">
-          <span class="eyebrow">Languages</span>
-          <p>${artist.languages.map(escapeHTML).join(", ")}</p>
+        <div class="studio-panel artist-profile-card">
+          <span class="eyebrow">Artist profile</span>
+          <div class="profile-head">
+            <div class="profile-avatar-wrap">
+              <img src="${artist.image}" alt="${escapeHTML(artist.name)} profile photo">
+              <span>✓</span>
+            </div>
+            <h2>${escapeHTML(artist.name)}</h2>
+            <p><strong>${artist.rating.toFixed(1)}</strong> (${artist.completed} bookings)</p>
+          </div>
+          <div class="profile-list">
+            <div><span>Member Since</span><strong>2024</strong></div>
+            <div><span>Studio</span><strong>${escapeHTML(artist.studio)}</strong></div>
+            <div><span>Address</span><strong>${escapeHTML(artist.address)}</strong></div>
+            <div><span>Style</span><strong>${escapeHTML(artist.style)}</strong></div>
+            <div><span>No of Listings</span><strong>${services.length}</strong></div>
+            <div><span>Marketplace Contact</span><strong>In-platform only</strong></div>
+          </div>
         </div>
       </aside>
     </section>
