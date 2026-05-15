@@ -1,6 +1,7 @@
 const state = {
   marketplace: null,
-  artistFilter: "recommended"
+  artistFilter: "recommended",
+  showAllCategories: false
 };
 
 const $ = (selector) => document.querySelector(selector);
@@ -41,7 +42,8 @@ function fillFilters() {
 }
 
 function renderCategories() {
-  $("[data-category-grid]").innerHTML = state.marketplace.categories
+  const categories = state.showAllCategories ? state.marketplace.categories : state.marketplace.categories.slice(0, 10);
+  $("[data-category-grid]").innerHTML = categories
     .map(
       (category) => `
         <article class="category-card">
@@ -52,6 +54,8 @@ function renderCategories() {
         </article>`
     )
     .join("");
+  const toggle = $("[data-toggle-categories]");
+  if (toggle) toggle.textContent = state.showAllCategories ? "Show less" : "View all";
 }
 
 function renderServices(services) {
@@ -168,6 +172,11 @@ function setupEvents() {
       state.artistFilter = artistFilter.dataset.artistFilter;
       $$("[data-artist-filter]").forEach((item) => item.classList.toggle("active", item === artistFilter));
       renderArtists();
+    }
+
+    if (event.target.closest("[data-toggle-categories]")) {
+      state.showAllCategories = !state.showAllCategories;
+      renderCategories();
     }
 
     if (event.target.closest("[data-open-booking]")) openModal("booking");

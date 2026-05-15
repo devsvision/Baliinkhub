@@ -12,40 +12,259 @@
                   "Amed"
               ],
     "styles":  [
-                   "Realism",
-                   "Blackwork",
-                   "Japanese",
-                   "Fine Line",
-                   "Balinese Style",
-                   "Geometric",
-                   "Minimalist",
-                   "Traditional"
+                   "American Traditional (Old School)",
+                   "Realism (Realitis)",
+                   "Japanese Irezumi (Tradisional Jepang)",
+                   "Tribal (Kesukuan)",
+                   "Biomechanical (Biomekanik)",
+                   "Geometric \u0026 Ornamental",
+                   "Neo-Traditional",
+                   "Watercolor (Cat Air)",
+                   "Blackwork \u0026 Blackout",
+                   "Trash Polka",
+                   "Fine Line \u0026 Micro-Realism",
+                   "Chicano",
+                   "Anime / Manga / Otaku Style",
+                   "Sketch / Abstract",
+                   "Continuous Line (One Line Tattoo)",
+                   "Ignorant Style",
+                   "Cyberpunk / Glitch",
+                   "New School",
+                   "Surrealism (Surealisme)",
+                   "Dotwork (Stippling)",
+                   "Illustrative (Ilustratif)",
+                   "Portraiture (Potret Wajah)",
+                   "Stick and Poke (Hand-Poked)",
+                   "Lettering / Script (Kaligrafi Kulit)",
+                   "Cyber Sigilism (Nu-Tribal)",
+                   "Patchwork Style",
+                   "Blast-Over",
+                   "Abstract Expressionism (Brushstroke)",
+                   "American Folk Art",
+                   "Woodcut / Engraving (Ukir Kayu)",
+                   "Black \u0026 Grey Realism",
+                   "Color Realism",
+                   "Polynesians / Marquesan",
+                   "Celtic Tattoo",
+                   "Mayan / Aztec (Pre-Columbian)",
+                   "Dark Art (Horror)",
+                   "Stonework / 3D Stone",
+                   "Vaporwave / Aesthetic Y2K",
+                   "Optical Illusion (Moiré Art)",
+                   "Negative Space",
+                   "Comic Book / Pop Art",
+                   "Balinese Style"
                ],
     "categories":  [
                        {
-                           "name":  "Realism",
-                           "count":  8,
+                           "name":  "American Traditional (Old School)",
+                           "count":  4,
+                           "image":  "https://images.unsplash.com/photo-1584824486539-53bb4646bdbc?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
+                       },
+                       {
+                           "name":  "Realism (Realitis)",
+                           "count":  7,
                            "image":  "https://images.unsplash.com/photo-1612459284970-e8f027596582?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
                        },
                        {
-                           "name":  "Blackwork",
-                           "count":  12,
-                           "image":  "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
-                       },
-                       {
-                           "name":  "Japanese",
-                           "count":  6,
+                           "name":  "Japanese Irezumi (Tradisional Jepang)",
+                           "count":  10,
                            "image":  "https://images.unsplash.com/photo-1541123437800-1bb1317badc2?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
                        },
                        {
-                           "name":  "Fine Line",
-                           "count":  10,
+                           "name":  "Tribal (Kesukuan)",
+                           "count":  13,
+                           "image":  "https://images.unsplash.com/photo-1562962230-16e4623d36e6?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
+                       },
+                       {
+                           "name":  "Biomechanical (Biomekanik)",
+                           "count":  16,
+                           "image":  "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
+                       },
+                       {
+                           "name":  "Geometric \u0026 Ornamental",
+                           "count":  19,
+                           "image":  "https://images.unsplash.com/photo-1561214115-f2f134cc4912?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
+                       },
+                       {
+                           "name":  "Neo-Traditional",
+                           "count":  4,
+                           "image":  "https://images.unsplash.com/photo-1565058379802-bbe93b2f703a?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
+                       },
+                       {
+                           "name":  "Watercolor (Cat Air)",
+                           "count":  7,
                            "image":  "https://images.unsplash.com/photo-1614086611768-2bd3e3c9f65f?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
                        },
                        {
-                           "name":  "Balinese Style",
-                           "count":  9,
+                           "name":  "Blackwork \u0026 Blackout",
+                           "count":  10,
+                           "image":  "https://images.unsplash.com/photo-1584824486539-53bb4646bdbc?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
+                       },
+                       {
+                           "name":  "Trash Polka",
+                           "count":  13,
+                           "image":  "https://images.unsplash.com/photo-1612459284970-e8f027596582?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
+                       },
+                       {
+                           "name":  "Fine Line \u0026 Micro-Realism",
+                           "count":  16,
+                           "image":  "https://images.unsplash.com/photo-1541123437800-1bb1317badc2?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
+                       },
+                       {
+                           "name":  "Chicano",
+                           "count":  19,
                            "image":  "https://images.unsplash.com/photo-1562962230-16e4623d36e6?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
+                       },
+                       {
+                           "name":  "Anime / Manga / Otaku Style",
+                           "count":  4,
+                           "image":  "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
+                       },
+                       {
+                           "name":  "Sketch / Abstract",
+                           "count":  7,
+                           "image":  "https://images.unsplash.com/photo-1561214115-f2f134cc4912?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
+                       },
+                       {
+                           "name":  "Continuous Line (One Line Tattoo)",
+                           "count":  10,
+                           "image":  "https://images.unsplash.com/photo-1565058379802-bbe93b2f703a?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
+                       },
+                       {
+                           "name":  "Ignorant Style",
+                           "count":  13,
+                           "image":  "https://images.unsplash.com/photo-1614086611768-2bd3e3c9f65f?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
+                       },
+                       {
+                           "name":  "Cyberpunk / Glitch",
+                           "count":  16,
+                           "image":  "https://images.unsplash.com/photo-1584824486539-53bb4646bdbc?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
+                       },
+                       {
+                           "name":  "New School",
+                           "count":  19,
+                           "image":  "https://images.unsplash.com/photo-1612459284970-e8f027596582?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
+                       },
+                       {
+                           "name":  "Surrealism (Surealisme)",
+                           "count":  4,
+                           "image":  "https://images.unsplash.com/photo-1541123437800-1bb1317badc2?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
+                       },
+                       {
+                           "name":  "Dotwork (Stippling)",
+                           "count":  7,
+                           "image":  "https://images.unsplash.com/photo-1562962230-16e4623d36e6?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
+                       },
+                       {
+                           "name":  "Illustrative (Ilustratif)",
+                           "count":  10,
+                           "image":  "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
+                       },
+                       {
+                           "name":  "Portraiture (Potret Wajah)",
+                           "count":  13,
+                           "image":  "https://images.unsplash.com/photo-1561214115-f2f134cc4912?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
+                       },
+                       {
+                           "name":  "Stick and Poke (Hand-Poked)",
+                           "count":  16,
+                           "image":  "https://images.unsplash.com/photo-1565058379802-bbe93b2f703a?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
+                       },
+                       {
+                           "name":  "Lettering / Script (Kaligrafi Kulit)",
+                           "count":  19,
+                           "image":  "https://images.unsplash.com/photo-1614086611768-2bd3e3c9f65f?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
+                       },
+                       {
+                           "name":  "Cyber Sigilism (Nu-Tribal)",
+                           "count":  4,
+                           "image":  "https://images.unsplash.com/photo-1584824486539-53bb4646bdbc?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
+                       },
+                       {
+                           "name":  "Patchwork Style",
+                           "count":  7,
+                           "image":  "https://images.unsplash.com/photo-1612459284970-e8f027596582?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
+                       },
+                       {
+                           "name":  "Blast-Over",
+                           "count":  10,
+                           "image":  "https://images.unsplash.com/photo-1541123437800-1bb1317badc2?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
+                       },
+                       {
+                           "name":  "Abstract Expressionism (Brushstroke)",
+                           "count":  13,
+                           "image":  "https://images.unsplash.com/photo-1562962230-16e4623d36e6?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
+                       },
+                       {
+                           "name":  "American Folk Art",
+                           "count":  16,
+                           "image":  "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
+                       },
+                       {
+                           "name":  "Woodcut / Engraving (Ukir Kayu)",
+                           "count":  19,
+                           "image":  "https://images.unsplash.com/photo-1561214115-f2f134cc4912?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
+                       },
+                       {
+                           "name":  "Black \u0026 Grey Realism",
+                           "count":  4,
+                           "image":  "https://images.unsplash.com/photo-1565058379802-bbe93b2f703a?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
+                       },
+                       {
+                           "name":  "Color Realism",
+                           "count":  7,
+                           "image":  "https://images.unsplash.com/photo-1614086611768-2bd3e3c9f65f?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
+                       },
+                       {
+                           "name":  "Polynesians / Marquesan",
+                           "count":  10,
+                           "image":  "https://images.unsplash.com/photo-1584824486539-53bb4646bdbc?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
+                       },
+                       {
+                           "name":  "Celtic Tattoo",
+                           "count":  13,
+                           "image":  "https://images.unsplash.com/photo-1612459284970-e8f027596582?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
+                       },
+                       {
+                           "name":  "Mayan / Aztec (Pre-Columbian)",
+                           "count":  16,
+                           "image":  "https://images.unsplash.com/photo-1541123437800-1bb1317badc2?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
+                       },
+                       {
+                           "name":  "Dark Art (Horror)",
+                           "count":  19,
+                           "image":  "https://images.unsplash.com/photo-1562962230-16e4623d36e6?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
+                       },
+                       {
+                           "name":  "Stonework / 3D Stone",
+                           "count":  4,
+                           "image":  "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
+                       },
+                       {
+                           "name":  "Vaporwave / Aesthetic Y2K",
+                           "count":  7,
+                           "image":  "https://images.unsplash.com/photo-1561214115-f2f134cc4912?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
+                       },
+                       {
+                           "name":  "Optical Illusion (Moiré Art)",
+                           "count":  10,
+                           "image":  "https://images.unsplash.com/photo-1565058379802-bbe93b2f703a?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
+                       },
+                       {
+                           "name":  "Negative Space",
+                           "count":  13,
+                           "image":  "https://images.unsplash.com/photo-1614086611768-2bd3e3c9f65f?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
+                       },
+                       {
+                           "name":  "Comic Book / Pop Art",
+                           "count":  16,
+                           "image":  "https://images.unsplash.com/photo-1584824486539-53bb4646bdbc?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
+                       },
+                       {
+                           "name":  "Balinese Style",
+                           "count":  19,
+                           "image":  "https://images.unsplash.com/photo-1612459284970-e8f027596582?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
                        }
                    ],
     "services":  [

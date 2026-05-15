@@ -534,6 +534,7 @@ textarea {
 .blog-grid h3 {
   margin: 0;
   font-size: 17px;
+  line-height: 1.35;
 }
 
 .category-card p,
