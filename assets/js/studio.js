@@ -36,6 +36,7 @@ const bookingState = {
 const bookingSteps = ["Location", "Service Mode", "Service", "Date & Time", "Personal Information", "Cart", "Payment", "Confirmation"];
 
 document.addEventListener("DOMContentLoaded", async () => {
+  setupSplash();
   const marketplace = await fetchMarketplace();
   const artistId = new URLSearchParams(window.location.search).get("id") || marketplace.artists[0].id;
   const artist = marketplace.artists.find((item) => item.id === artistId) || marketplace.artists[0];
@@ -50,6 +51,16 @@ document.addEventListener("DOMContentLoaded", async () => {
   renderBookingWizard($("[data-studio-booking-form]"));
   setupEvents();
 });
+
+function setupSplash() {
+  const splash = $("[data-splash]");
+  if (!splash) return;
+  window.setTimeout(() => {
+    splash.classList.add("is-hidden");
+    document.body.dataset.splashActive = "false";
+  }, 3000);
+  window.setTimeout(() => splash.remove(), 3600);
+}
 
 async function fetchMarketplace() {
   const response = await fetch("data/marketplace.json", { cache: "no-store" });

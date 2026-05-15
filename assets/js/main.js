@@ -39,6 +39,7 @@ const transportFees = {
 };
 
 document.addEventListener("DOMContentLoaded", async () => {
+  setupSplash();
   state.marketplace = await fetchMarketplace();
   fillFilters();
   renderCategories();
@@ -49,6 +50,16 @@ document.addEventListener("DOMContentLoaded", async () => {
   renderReviews();
   setupEvents();
 });
+
+function setupSplash() {
+  const splash = $("[data-splash]");
+  if (!splash) return;
+  window.setTimeout(() => {
+    splash.classList.add("is-hidden");
+    document.body.dataset.splashActive = "false";
+  }, 3000);
+  window.setTimeout(() => splash.remove(), 3600);
+}
 
 async function fetchMarketplace() {
   const response = await fetch("data/marketplace.json", { cache: "no-store" });
