@@ -556,6 +556,9 @@ textarea {
 
 .card-body,
 .artist-body {
+  display: flex;
+  min-height: 180px;
+  flex-direction: column;
   padding: 16px;
 }
 
@@ -565,7 +568,8 @@ textarea {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  margin-top: 14px;
+  margin-top: auto;
+  padding-top: 14px;
 }
 
 .artist-actions {
