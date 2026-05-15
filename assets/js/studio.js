@@ -55,6 +55,7 @@ function renderStudio(artist, services, reviews) {
         <a href="#studio-services">Services</a>
         <a href="#portfolio">Portfolio</a>
         <a href="#availability">Availability</a>
+        <a href="#location">Location</a>
         <a href="#studio-reviews">Reviews</a>
         <a href="#policies">Policies</a>
       </div>
@@ -96,6 +97,26 @@ function renderStudio(artist, services, reviews) {
           <p>Dates shown here are sample marketplace availability slots. Final confirmation happens after the artist reviews the request.</p>
           <div class="availability-grid">
             ${Array.from({ length: 21 }, (_, index) => `<span class="${[2, 5, 9, 13, 18].includes(index) ? "available" : ""}">${index + 1}</span>`).join("")}
+          </div>
+        </article>
+
+        <article class="studio-panel" id="location">
+          <span class="eyebrow">Studio location</span>
+          <h2>Map and directions</h2>
+          <p>This dummy map represents the studio location that artists will provide during registration. Clients can open the location as a direction marker before visiting the studio.</p>
+          <div class="studio-map">
+            <iframe
+              title="${escapeHTML(artist.studio)} location map"
+              src="${mapEmbedUrl(artist)}"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <div class="map-info">
+            <div>
+              <strong>${escapeHTML(artist.studio)}</strong>
+              <p>${escapeHTML(artist.address)}</p>
+            </div>
+            <a class="gold-btn" href="${mapDirectionUrl(artist)}" target="_blank" rel="noopener">Open Direction</a>
           </div>
         </article>
 
@@ -162,6 +183,19 @@ function fillBookingServices(services) {
   $("[data-studio-service-select]").innerHTML = services
     .map((service) => `<option value="${escapeHTML(service.id)}">${escapeHTML(service.title)} - From ${formatIDR(service.price)}</option>`)
     .join("");
+}
+
+function mapEmbedUrl(artist) {
+  const delta = 0.01;
+  const left = artist.longitude - delta;
+  const right = artist.longitude + delta;
+  const top = artist.latitude + delta;
+  const bottom = artist.latitude - delta;
+  return `https://www.openstreetmap.org/export/embed.html?bbox=${left}%2C${bottom}%2C${right}%2C${top}&layer=mapnik&marker=${artist.latitude}%2C${artist.longitude}`;
+}
+
+function mapDirectionUrl(artist) {
+  return `https://www.google.com/maps/search/?api=1&query=${artist.latitude},${artist.longitude}`;
 }
 
 function setupEvents() {

@@ -1027,6 +1027,45 @@ textarea {
   color: var(--gold-2);
 }
 
+.studio-map {
+  margin-top: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(215, 173, 84, 0.18);
+  border-radius: 22px;
+  background: rgba(7, 4, 3, 0.42);
+}
+
+.studio-map iframe {
+  display: block;
+  width: 100%;
+  height: 360px;
+  border: 0;
+  filter: grayscale(0.35) contrast(1.08) brightness(0.86);
+}
+
+.map-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: 16px;
+}
+
+.map-info strong {
+  color: var(--gold-2);
+}
+
+.map-info p {
+  margin: 6px 0 0;
+}
+
+.map-info .gold-btn {
+  display: inline-flex;
+  min-width: 160px;
+  align-items: center;
+  justify-content: center;
+}
+
 .side-card {
   position: sticky;
   top: 138px;
@@ -1145,6 +1184,19 @@ textarea {
 
   .availability-grid {
     grid-template-columns: repeat(4, 1fr);
+  }
+
+  .map-info {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .map-info .gold-btn {
+    width: 100%;
+  }
+
+  .studio-map iframe {
+    height: 280px;
   }
 
   .hero-card__image img {
