@@ -1337,6 +1337,47 @@ textarea {
   display: none;
 }
 
+.auth-switch {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  border: 1px solid rgba(215, 173, 84, 0.18);
+  border-radius: 999px;
+  background: rgba(7, 4, 3, 0.42);
+  padding: 5px;
+}
+
+.auth-switch button {
+  min-height: 38px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font-weight: 900;
+}
+
+.auth-switch button.active {
+  background: linear-gradient(135deg, var(--gold-2), var(--gold));
+  color: #130b07;
+}
+
+.dashboard-preview {
+  border: 1px solid rgba(215, 173, 84, 0.2);
+  border-radius: 18px;
+  background: rgba(215, 173, 84, 0.1);
+  padding: 14px;
+}
+
+.dashboard-preview strong {
+  color: var(--gold-2);
+}
+
+.dashboard-preview p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
 .studio-loading {
   padding: 88px 0;
   color: var(--muted);
@@ -1777,19 +1818,19 @@ textarea {
 
   .mobile-app-nav {
     position: fixed;
-    left: 12px;
-    right: 12px;
-    bottom: 12px;
+    left: 28px;
+    right: 28px;
+    bottom: 14px;
     z-index: 90;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 6px;
-    border: 1px solid rgba(244, 220, 157, 0.26);
-    border-radius: 24px;
+    gap: 2px;
+    border: 1px solid rgba(244, 220, 157, 0.18);
+    border-radius: 22px;
     background:
       radial-gradient(circle at 50% 0%, rgba(215, 173, 84, 0.18), transparent 12rem),
-      rgba(7, 4, 3, 0.9);
-    padding: 8px;
+      rgba(255, 248, 232, 0.92);
+    padding: 9px 10px 11px;
     box-shadow: 0 18px 60px rgba(0, 0, 0, 0.55), 0 0 24px rgba(215, 173, 84, 0.1);
     backdrop-filter: blur(18px);
   }
@@ -1803,7 +1844,7 @@ textarea {
     border: 0;
     border-radius: 18px;
     background: transparent;
-    color: var(--muted);
+    color: #6f6a61;
     font-size: 10px;
     font-weight: 900;
     line-height: 1;
@@ -1816,21 +1857,41 @@ textarea {
     height: 26px;
     place-items: center;
     border-radius: 999px;
-    color: var(--gold-2);
+    color: #7c786f;
     font-size: 15px;
   }
 
   .mobile-app-nav a.active,
   .mobile-app-nav a:hover,
   .mobile-app-nav button:hover {
-    background: rgba(215, 173, 84, 0.13);
-    color: var(--gold-2);
+    background: rgba(215, 173, 84, 0.1);
+    color: #1f67d8;
   }
 
   .mobile-app-nav a.active span,
-  .mobile-app-nav button:last-child span {
-    background: linear-gradient(135deg, var(--gold-2), var(--gold));
-    color: #130b07;
+  .mobile-app-nav button:hover span {
+    color: #1f67d8;
+  }
+
+  .mobile-app-nav .nav-book {
+    position: relative;
+    margin-top: -28px;
+    color: #7c786f;
+  }
+
+  .mobile-app-nav .nav-book span {
+    width: 54px;
+    height: 54px;
+    border: 5px solid rgba(255, 248, 232, 0.95);
+    background: linear-gradient(135deg, #4f93ff, #1f67d8);
+    color: #fff;
+    box-shadow: 0 10px 22px rgba(31, 103, 216, 0.36);
+    transform: rotate(-28deg);
+  }
+
+  .mobile-app-nav .nav-book:hover {
+    background: transparent;
+    color: #1f67d8;
   }
 
   .top-strip__inner,

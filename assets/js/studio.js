@@ -252,10 +252,20 @@ function setupEvents() {
         modal.showModal();
       }
     }
+    if (event.target.closest("[data-open-me]")) {
+      const modal = $('[data-modal="me"]');
+      if (modal?.showModal) modal.showModal();
+    }
+    handleMeModalClick(event);
   });
 
   $("[data-studio-booking-form]").addEventListener("submit", () => {
     showToast("Booking service submitted for artist review.");
+  });
+
+  $("[data-me-form]").addEventListener("submit", (event) => {
+    event.preventDefault();
+    showDashboardPreview(event.currentTarget);
   });
 }
 
@@ -373,6 +383,26 @@ function modeLabel() {
 
 function gatewayLabel(value) {
   return ({ midtrans: "Midtrans", ovo: "OVO", dana: "DANA", qris: "QRIS", "bank-transfer": "Bank Transfer" })[value] || value;
+}
+
+function handleMeModalClick(event) {
+  const modeButton = event.target.closest("[data-auth-mode]");
+  if (!modeButton) return;
+  const form = modeButton.closest("[data-me-form]");
+  form.querySelectorAll("[data-auth-mode]").forEach((button) => button.classList.toggle("active", button === modeButton));
+  form.dataset.mode = modeButton.dataset.authMode;
+}
+
+function showDashboardPreview(form) {
+  const role = form.elements.role.value;
+  const labels = {
+    client: "Client Dashboard",
+    artist: "Artist Dashboard",
+    admin: "Admin Dashboard"
+  };
+  const preview = form.querySelector("[data-dashboard-preview]");
+  preview.classList.remove("hidden");
+  preview.innerHTML = `<strong>${labels[role]}</strong><p>Login success placeholder. This role will be redirected to the ${labels[role]} when backend authentication is connected.</p>`;
 }
 
 function escapeHTML(value) {

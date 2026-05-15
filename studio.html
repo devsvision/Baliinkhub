@@ -45,10 +45,10 @@
 
     <nav class="mobile-app-nav" aria-label="Mobile app navigation">
       <a href="index.html"><span>⌂</span>Home</a>
-      <a href="#studio-services"><span>✦</span>Services</a>
-      <a href="#portfolio"><span>▧</span>Portfolio</a>
-      <a href="#location"><span>⌖</span>Location</a>
-      <button type="button" data-open-studio-booking><span>＋</span>Book</button>
+      <a href="index.html#categories"><span>▤</span>Category</a>
+      <button class="nav-book" type="button" data-open-studio-booking><span>➤</span>Book</button>
+      <a href="index.html#artists"><span>◎</span>Artists</a>
+      <button type="button" data-open-me><span>♙</span>Me</button>
     </nav>
 
     <dialog class="modal booking-modal" data-modal="studio-booking">
@@ -72,6 +72,27 @@
             <button class="gold-btn hidden" value="submit" data-booking-submit>Confirm Booking</button>
           </footer>
         </section>
+      </form>
+    </dialog>
+
+    <dialog class="modal" data-modal="me">
+      <form method="dialog" class="modal-card me-card" data-me-form>
+        <button class="modal-close" value="close" aria-label="Close">&times;</button>
+        <span class="eyebrow">Account access</span>
+        <h2>Sign in or sign up</h2>
+        <div class="auth-switch">
+          <button class="active" type="button" data-auth-mode="signin">Sign in</button>
+          <button type="button" data-auth-mode="signup">Sign up</button>
+        </div>
+        <input name="email" type="email" required placeholder="Email address" />
+        <input name="password" type="password" required placeholder="Password" />
+        <select name="role" required>
+          <option value="client">Client Dashboard</option>
+          <option value="artist">Artist Dashboard</option>
+          <option value="admin">Admin Dashboard</option>
+        </select>
+        <button class="gold-btn" value="submit">Continue</button>
+        <div class="dashboard-preview hidden" data-dashboard-preview></div>
       </form>
     </dialog>
 
