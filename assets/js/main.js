@@ -73,11 +73,12 @@ function renderCategories() {
   $("[data-category-grid]").innerHTML = categories
     .map(
       (category) => `
-        <article class="category-card">
-          <img src="${category.image}" alt="${escapeHTML(category.name)} tattoo category" loading="lazy">
-          <h3>${escapeHTML(category.name)}</h3>
-          <p>${category.count} Services</p>
-          <button class="ghost-btn" type="button" data-quick-search="${escapeHTML(category.name)}">View All</button>
+        <article class="category-card" data-quick-search="${escapeHTML(category.name)}">
+          <div class="category-icon">${categoryIcon(category.name)}</div>
+          <div>
+            <h3>${escapeHTML(category.name)}</h3>
+            <p>${category.count} Artists</p>
+          </div>
         </article>`
     )
     .join("");
@@ -351,6 +352,25 @@ function modeLabel() {
 
 function gatewayLabel(value) {
   return ({ midtrans: "Midtrans", ovo: "OVO", dana: "DANA", qris: "QRIS", "bank-transfer": "Bank Transfer" })[value] || value;
+}
+
+function categoryIcon(name) {
+  const lower = name.toLowerCase();
+  if (lower.includes("traditional")) return "⚓";
+  if (lower.includes("realism") || lower.includes("portrait")) return "◎";
+  if (lower.includes("japanese") || lower.includes("irezumi")) return "龍";
+  if (lower.includes("tribal") || lower.includes("polynesian") || lower.includes("marquesan")) return "◆";
+  if (lower.includes("biomechanical") || lower.includes("cyber")) return "⌬";
+  if (lower.includes("geometric") || lower.includes("ornamental")) return "⬡";
+  if (lower.includes("watercolor")) return "✦";
+  if (lower.includes("blackwork") || lower.includes("blackout")) return "■";
+  if (lower.includes("trash")) return "✕";
+  if (lower.includes("fine line") || lower.includes("continuous")) return "〰";
+  if (lower.includes("anime") || lower.includes("manga")) return "★";
+  if (lower.includes("dotwork")) return "⠿";
+  if (lower.includes("lettering") || lower.includes("script")) return "Aa";
+  if (lower.includes("balinese")) return "✺";
+  return "✶";
 }
 
 function sanitize(value) {
