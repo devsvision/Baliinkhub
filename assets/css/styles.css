@@ -27,6 +27,27 @@ body {
   background: var(--black);
   color: var(--white);
   font-family: Inter, system-ui, sans-serif;
+  scrollbar-color: var(--gold) #120b07;
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #120b07;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 2px solid #120b07;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--gold-2), var(--gold) 56%, #8d642c);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #fff0b7, var(--gold), #a97b35);
 }
 
 body::before {
