@@ -256,6 +256,10 @@ function setupEvents() {
       const modal = $('[data-modal="me"]');
       if (modal?.showModal) modal.showModal();
     }
+    const closeButton = event.target.closest(".modal-close");
+    if (closeButton) {
+      closeButton.closest("dialog")?.close();
+    }
     handleMeModalClick(event);
   });
 

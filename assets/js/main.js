@@ -221,6 +221,10 @@ function setupEvents() {
     if (event.target.closest("[data-open-booking]")) openModal("booking");
     if (event.target.closest("[data-open-login]")) openModal("login");
     if (event.target.closest("[data-open-me]")) openModal("me");
+    const closeButton = event.target.closest(".modal-close");
+    if (closeButton) {
+      closeButton.closest("dialog")?.close();
+    }
     handleMeModalClick(event);
   });
 
