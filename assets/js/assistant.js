@@ -311,35 +311,34 @@ function sendMessage(text) {
 function answer(input) {
   const data = assistantState.marketplace;
   const text = input.toLowerCase();
-  const query = encodeURIComponent(`${input} tattoo Bali`);
   const knowledge = knowledgeAnswer(text);
 
   if (!data) {
     const fallback = knowledge || "I can guide the general flow first: choose an artist, click Booking Service, enter your location, choose In-Studio or On-Demand, select a service, schedule a date and time, fill personal information, review cart, choose payment, then confirm.";
-    return withGoogleReference(fallback, query);
+    return fallback;
   }
 
   if (matches(text, ["canggu", "ubud", "seminyak", "denpasar", "sanur", "singaraja", "karangasem", "amed", "kuta", "uluwatu"])) {
-    return withGoogleReference(areaAnswer(text, data), query);
+    return areaAnswer(text, data);
   }
 
   if (matches(text, ["price", "harga", "biaya", "cost", "berapa"])) {
-    return withGoogleReference(priceAnswer(text, data), query);
+    return priceAnswer(text, data);
   }
 
   if (matches(text, ["artist", "artis", "studio", "recommend", "rekomendasi"])) {
-    return withGoogleReference(artistAnswer(data), query);
+    return artistAnswer(data);
   }
 
   if (matches(text, ["style", "kategori", "category", "blackwork", "realism", "fine line", "japanese", "balinese"])) {
-    return withGoogleReference(styleAnswer(text, data), query);
+    return styleAnswer(text, data);
   }
 
   if (knowledge) {
-    return withGoogleReference(knowledge, query);
+    return knowledge;
   }
 
-  return withGoogleReference(generalAnswer(input, query, data), query);
+  return generalAnswer(input, data);
 }
 
 function areaAnswer(text, data) {
@@ -367,7 +366,7 @@ function styleAnswer(text, data) {
   return `BALI INK HUB has many categories/styles, including ${(styles.length ? styles : fallback).join(", ")}. Choose a style from the category section to discover matching services.`;
 }
 
-function generalAnswer(input, query, data) {
+function generalAnswer(input, data) {
   const lower = input.toLowerCase();
   const foundArtist = data.artists.find((artist) => lower.includes(artist.name.toLowerCase()) || lower.includes(artist.studio.toLowerCase()));
   if (foundArtist) {
@@ -385,10 +384,6 @@ function generalAnswer(input, query, data) {
 function knowledgeAnswer(text) {
   const entry = builtInKnowledge.find((item) => matches(text, item.keywords));
   return entry?.response || "";
-}
-
-function withGoogleReference(response, query) {
-  return `${response}\n\nGoogle reference: https://www.google.com/search?q=${query}`;
 }
 
 function renderMessages() {
