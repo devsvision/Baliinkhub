@@ -49,13 +49,13 @@ BALI INK HUB/
 - Tombol `View Studio` pada card artist
 - Artist studio page
 - Marketplace booking modal
-- Floating Devs AI assistant widget
+- Floating Devs Customer Service widget
 - Reviews
 - Availability preview
 - Booking policies
 - Responsive mobile layout
 
-## Devs AI Assistant
+## Devs Customer Service
 
 Widget chat floating tersedia di `index.html` dan `studio.html` melalui:
 
@@ -63,7 +63,7 @@ Widget chat floating tersedia di `index.html` dan `studio.html` melalui:
 assets/js/assistant.js
 ```
 
-Widget dapat dibuka dari icon floating kanan bawah atau tombol `AI Assistant`. Devs membaca dummy database internal untuk membantu menjawab rekomendasi artist, style, estimasi harga, booking service, payment flow, dan aftercare dasar.
+Widget dapat dibuka dari icon floating kanan bawah atau tombol `Customer Service`. Devs membaca dummy database internal untuk membantu menjawab rekomendasi artist, style, estimasi harga, booking service, payment flow, dan aftercare dasar.
 
 ## Artist Studio Page
 

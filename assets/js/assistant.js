@@ -47,17 +47,23 @@ async function fetchMarketplace() {
 function injectAssistantWidget() {
   if ($("[data-ai-widget]")) return;
   document.body.insertAdjacentHTML("beforeend", `
-    <section class="ai-chat-widget" data-ai-widget aria-label="Devs AI assistant">
+    <section class="ai-chat-widget" data-ai-widget aria-label="Devs Customer Service">
       <div class="ai-chat-window" data-ai-window aria-hidden="true">
         <header class="ai-chat-header" data-ai-drag>
           <div>
-            <span class="assistant-orb">D</span>
+            <span class="assistant-orb" aria-hidden="true">
+              <span class="devs-avatar">
+                <span class="devs-avatar__eyes"></span>
+                <span class="devs-avatar__smile"></span>
+                <span class="devs-avatar__headset"></span>
+              </span>
+            </span>
             <div>
               <strong>Devs</strong>
-              <small>BALI INK HUB assistant</small>
+              <small>BALI INK HUB Customer Service</small>
             </div>
           </div>
-          <button type="button" data-ai-close aria-label="Close assistant">&times;</button>
+          <button type="button" data-ai-close aria-label="Close customer service">&times;</button>
         </header>
         <div class="chat-messages" data-chat-messages></div>
         <form class="chat-form" data-chat-form>
@@ -66,12 +72,16 @@ function injectAssistantWidget() {
         </form>
       </div>
       <div class="ai-launcher-wrap" data-ai-drag>
-        <button class="ai-close-mini" type="button" data-ai-hide aria-label="Hide assistant">&times;</button>
+        <button class="ai-close-mini" type="button" data-ai-hide aria-label="Hide customer service">&times;</button>
         <span class="ai-here-text" aria-hidden="true">
           <span>W</span><span>e</span><span>A</span><span>r</span><span>e</span><span>H</span><span>e</span><span>r</span><span>e</span><span>!</span>
         </span>
-        <button class="ai-launcher" type="button" data-ai-toggle aria-label="Open Devs assistant">
-          <span></span>
+        <button class="ai-launcher" type="button" data-ai-toggle aria-label="Open Devs Customer Service">
+          <span class="devs-avatar devs-avatar--launcher">
+            <span class="devs-avatar__eyes"></span>
+            <span class="devs-avatar__smile"></span>
+            <span class="devs-avatar__headset"></span>
+          </span>
         </button>
       </div>
     </section>
@@ -293,7 +303,7 @@ function generalAnswer(input, query, data) {
     return `${foundService.title} is available as a ${foundService.style} service in ${foundService.area}. Estimated price starts from ${formatIDR(foundService.price)} with a ${foundService.rating.toFixed(1)} rating. Final pricing is usually affected by size, detail, placement, and In-Studio or On-Demand mode.`;
   }
 
-  return `I am Devs, the BALI INK HUB assistant. I do not have a specific local database answer for that yet, but I can guide you: use search for area/style, open an artist studio for portfolio and maps, then continue to Booking Service for schedule and payment. Temporary external reference: https://www.google.com/search?q=${query}`;
+  return `I am Devs, the BALI INK HUB Customer Service. I do not have a specific local database answer for that yet, but I can guide you: use search for area/style, open an artist studio for portfolio and maps, then continue to Booking Service for schedule and payment. Temporary external reference: https://www.google.com/search?q=${query}`;
 }
 
 function renderMessages() {
