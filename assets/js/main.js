@@ -1,7 +1,7 @@
 const state = {
   marketplace: null,
   artistFilter: "recommended",
-  showAllCategories: false,
+  categoryPage: 1,
   bookingStep: 1,
   booking: {
     clientLocation: "Canggu",
@@ -69,7 +69,10 @@ function fillFilters() {
 }
 
 function renderCategories() {
-  const categories = state.showAllCategories ? state.marketplace.categories : state.marketplace.categories.slice(0, 12);
+  const perPage = 8;
+  const totalPages = Math.ceil(state.marketplace.categories.length / perPage);
+  const start = (state.categoryPage - 1) * perPage;
+  const categories = state.marketplace.categories.slice(start, start + perPage);
   $("[data-category-grid]").innerHTML = categories
     .map(
       (category) => `
@@ -81,8 +84,16 @@ function renderCategories() {
         </article>`
     )
     .join("");
-  const toggle = $("[data-toggle-categories]");
-  if (toggle) toggle.textContent = state.showAllCategories ? "Show less" : "View all";
+  renderCategoryPagination(totalPages);
+}
+
+function renderCategoryPagination(totalPages) {
+  const pages = Array.from({ length: totalPages }, (_, index) => index + 1);
+  const visible = pages.filter((page) => page <= 5 || page === totalPages);
+  $("[data-category-pagination]").innerHTML = `
+    <button type="button" ${state.categoryPage === 1 ? "disabled" : ""} data-category-page="${state.categoryPage - 1}">‹</button>
+    ${visible.map((page, index) => `${index === 5 && totalPages > 6 ? "<span>...</span>" : ""}<button type="button" class="${state.categoryPage === page ? "active" : ""}" data-category-page="${page}">${page}</button>`).join("")}
+    <button type="button" ${state.categoryPage === totalPages ? "disabled" : ""} data-category-page="${state.categoryPage + 1}">›</button>`;
 }
 
 function renderServices(services) {
@@ -201,8 +212,9 @@ function setupEvents() {
       renderArtists();
     }
 
-    if (event.target.closest("[data-toggle-categories]")) {
-      state.showAllCategories = !state.showAllCategories;
+    const categoryPage = event.target.closest("[data-category-page]");
+    if (categoryPage) {
+      state.categoryPage = Number(categoryPage.dataset.categoryPage);
       renderCategories();
     }
 
