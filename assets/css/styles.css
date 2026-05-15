@@ -1067,8 +1067,7 @@ textarea {
 }
 
 .side-card {
-  position: sticky;
-  top: 138px;
+  position: static;
 }
 
 .side-card .gold-btn,
