@@ -778,7 +778,7 @@ textarea {
 }
 
 .booking-modal {
-  width: min(820px, calc(100% - 30px));
+  width: min(1080px, calc(100% - 30px));
 }
 
 .modal::backdrop {
@@ -798,9 +798,9 @@ textarea {
 }
 
 .booking-card {
-  gap: 18px;
+  gap: 0;
   max-height: min(88vh, 920px);
-  overflow-y: auto;
+  overflow: hidden;
 }
 
 .booking-card h2 {
@@ -909,6 +909,304 @@ textarea {
 
 .hidden {
   display: none !important;
+}
+
+.booking-wizard {
+  grid-template-columns: 244px minmax(0, 1fr);
+  padding: 16px;
+}
+
+.booking-sidebar {
+  border: 1px solid rgba(215, 173, 84, 0.18);
+  border-radius: 20px;
+  background:
+    radial-gradient(circle at 72% 18%, rgba(215, 46, 135, 0.18), transparent 10rem),
+    linear-gradient(155deg, #0c1424, #0d0f1a 52%, #080a10);
+  padding: 18px 16px;
+}
+
+.booking-sidebar h3 {
+  margin: 0 0 12px;
+  color: var(--white);
+  font-size: 14px;
+}
+
+.booking-service-mini {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 10px;
+  align-items: center;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 10px;
+  margin-bottom: 22px;
+}
+
+.booking-service-mini img {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.booking-service-mini strong {
+  display: block;
+  color: var(--white);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.booking-service-mini span {
+  display: block;
+  margin-top: 4px;
+  color: var(--gold-2);
+  font-size: 12px;
+}
+
+.booking-sidebar ol {
+  display: grid;
+  gap: 15px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.booking-sidebar li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: rgba(255, 248, 232, 0.72);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.booking-sidebar li::before {
+  content: "";
+  position: absolute;
+  left: 9px;
+  top: 23px;
+  width: 1px;
+  height: 18px;
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.booking-sidebar li:last-child::before {
+  display: none;
+}
+
+.booking-sidebar li span {
+  display: grid;
+  width: 19px;
+  height: 19px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 10px;
+}
+
+.booking-sidebar li.done span {
+  border-color: #1fc37a;
+  background: #1fc37a;
+  color: #06110b;
+}
+
+.booking-sidebar li.active,
+.booking-sidebar li.active span {
+  color: var(--gold-2);
+  border-color: var(--gold);
+}
+
+.booking-workspace {
+  display: grid;
+  grid-template-rows: auto minmax(320px, 1fr) auto;
+  gap: 18px;
+  padding: 4px 0 0 24px;
+  overflow-y: auto;
+}
+
+.booking-workspace h2 {
+  margin-top: 4px;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 18px;
+}
+
+.booking-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  border-top: 1px solid rgba(215, 173, 84, 0.16);
+  padding-top: 16px;
+}
+
+.booking-actions button {
+  min-height: 38px;
+}
+
+.booking-actions button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.wizard-section,
+.confirmation-box {
+  display: grid;
+  gap: 16px;
+}
+
+.wizard-section p,
+.confirmation-box p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.choice-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.choice-grid button,
+.time-grid button,
+.payment-grid button,
+.wizard-service-grid button {
+  border: 1px solid rgba(215, 173, 84, 0.16);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.045);
+  color: var(--gold-2);
+  padding: 12px;
+  font-weight: 900;
+  text-align: left;
+}
+
+.choice-grid button.selected,
+.time-grid button.selected,
+.payment-grid button.selected,
+.wizard-service-grid button.selected,
+.service-mode-grid label.selected {
+  border-color: rgba(244, 220, 157, 0.58);
+  background: rgba(215, 173, 84, 0.16);
+  box-shadow: inset 0 0 0 1px rgba(244, 220, 157, 0.12);
+}
+
+.wizard-service-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.wizard-service-grid button {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 12px;
+  align-items: center;
+}
+
+.wizard-service-grid img {
+  grid-row: span 2;
+  width: 70px;
+  height: 58px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.wizard-service-grid span {
+  color: var(--white);
+}
+
+.wizard-service-grid strong {
+  color: var(--gold-2);
+}
+
+.date-time-grid,
+.personal-grid,
+.payment-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.95fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.date-time-grid p {
+  margin-top: 0;
+  color: var(--white);
+  font-weight: 800;
+}
+
+.mini-calendar {
+  border: 1px solid rgba(215, 173, 84, 0.18);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.045);
+  padding: 16px;
+}
+
+.calendar-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.calendar-head button {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border: 1px solid rgba(215, 173, 84, 0.2);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--gold-2);
+}
+
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  text-align: center;
+}
+
+.calendar-days span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.calendar-days button {
+  min-height: 34px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--white);
+}
+
+.calendar-days button.muted {
+  color: rgba(255, 248, 232, 0.38);
+}
+
+.calendar-days button.selected {
+  background: linear-gradient(135deg, var(--gold-2), var(--gold));
+  color: #130b07;
+  font-weight: 900;
+}
+
+.time-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.payment-grid h3 {
+  margin-top: 0;
+}
+
+.payment-grid > div {
+  display: grid;
+  gap: 10px;
+}
+
+.booking-summary.static {
+  position: static;
 }
 
 .modal-close {
@@ -1415,8 +1713,26 @@ textarea {
   }
 
   .booking-step,
-  .service-mode-grid {
+  .service-mode-grid,
+  .booking-wizard,
+  .date-time-grid,
+  .personal-grid,
+  .payment-grid,
+  .wizard-service-grid {
     grid-template-columns: 1fr;
+  }
+
+  .booking-card {
+    overflow-y: auto;
+  }
+
+  .booking-workspace {
+    min-height: 620px;
+    padding-left: 0;
+  }
+
+  .choice-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .booking-step > span {
