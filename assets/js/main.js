@@ -234,7 +234,7 @@ function setupEvents() {
   });
 
   document.querySelector('[data-modal="me"]').addEventListener("close", () => {
-    window.location.hash = "#top";
+    window.location.href = "index.html#top";
   });
 }
 
