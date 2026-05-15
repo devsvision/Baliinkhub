@@ -267,6 +267,10 @@ function setupEvents() {
     event.preventDefault();
     showDashboardPreview(event.currentTarget);
   });
+
+  document.querySelector('[data-modal="me"]').addEventListener("close", () => {
+    window.location.href = "index.html#top";
+  });
 }
 
 function showToast(message) {
@@ -394,15 +398,9 @@ function handleMeModalClick(event) {
 }
 
 function showDashboardPreview(form) {
-  const role = form.elements.role.value;
-  const labels = {
-    client: "Client Dashboard",
-    artist: "Artist Dashboard",
-    admin: "Admin Dashboard"
-  };
   const preview = form.querySelector("[data-dashboard-preview]");
   preview.classList.remove("hidden");
-  preview.innerHTML = `<strong>${labels[role]}</strong><p>Login success placeholder. This role will be redirected to the ${labels[role]} when backend authentication is connected.</p>`;
+  preview.innerHTML = `<strong>Client Dashboard</strong><p>Login success placeholder. This account will be redirected to the Client Dashboard when backend authentication is connected.</p>`;
 }
 
 function escapeHTML(value) {
