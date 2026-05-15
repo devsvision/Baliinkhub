@@ -1,4 +1,9 @@
 const $ = (selector) => document.querySelector(selector);
+const formatIDR = (value) => new Intl.NumberFormat("id-ID", {
+  style: "currency",
+  currency: "IDR",
+  maximumFractionDigits: 0
+}).format(value);
 
 document.addEventListener("DOMContentLoaded", async () => {
   const marketplace = await fetchMarketplace();
@@ -115,7 +120,7 @@ function renderStudio(artist, services, reviews) {
       <aside class="studio-side">
         <div class="studio-panel side-card">
           <span class="eyebrow">Request booking</span>
-          <h2>Start from $${Math.min(...services.map((service) => service.price))}</h2>
+          <h2>Start from ${formatIDR(Math.min(...services.map((service) => service.price)))}</h2>
           <p>Send one structured request to the marketplace. The artist reviews it from their studio dashboard before confirmation.</p>
           <button class="gold-btn" type="button" data-open-studio-booking>Request Booking</button>
           <a class="ghost-btn" href="index.html#artists">Compare Artists</a>
@@ -135,7 +140,7 @@ function packageTemplate(service) {
       <span>${escapeHTML(service.area)} &middot; ${escapeHTML(service.style)}</span>
       <h3>${escapeHTML(service.title)}</h3>
       <p>Includes consultation, placement guidance, size estimate, and aftercare notes.</p>
-      <strong>Starts at $${service.price}</strong>
+      <strong>Starts at ${formatIDR(service.price)}</strong>
     </div>`;
 }
 
@@ -155,7 +160,7 @@ function portfolioImages(artist, services) {
 
 function fillBookingServices(services) {
   $("[data-studio-service-select]").innerHTML = services
-    .map((service) => `<option value="${escapeHTML(service.id)}">${escapeHTML(service.title)} - From $${service.price}</option>`)
+    .map((service) => `<option value="${escapeHTML(service.id)}">${escapeHTML(service.title)} - From ${formatIDR(service.price)}</option>`)
     .join("");
 }
 

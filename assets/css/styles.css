@@ -81,13 +81,13 @@ img {
 .brand {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   min-width: max-content;
 }
 
 .brand img {
-  width: 58px;
-  height: 42px;
+  width: 74px;
+  height: 52px;
   object-fit: contain;
   filter: drop-shadow(0 0 10px rgba(215, 173, 84, 0.24));
 }
@@ -101,7 +101,7 @@ h2 {
 .brand strong {
   display: block;
   color: var(--gold-2);
-  font-size: 16px;
+  font-size: 18px;
   letter-spacing: 0;
 }
 

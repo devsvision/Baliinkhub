@@ -5,6 +5,11 @@ const state = {
 
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => document.querySelectorAll(selector);
+const formatIDR = (value) => new Intl.NumberFormat("id-ID", {
+  style: "currency",
+  currency: "IDR",
+  maximumFractionDigits: 0
+}).format(value);
 
 document.addEventListener("DOMContentLoaded", async () => {
   state.marketplace = await fetchMarketplace();
@@ -59,7 +64,7 @@ function renderServices(services) {
             <span class="pill">${escapeHTML(service.area)}</span>
             <h3>${escapeHTML(service.title)}</h3>
             <p>${escapeHTML(service.style)} tattoo service in Bali.</p>
-            <div class="price-row"><strong>Starts at $${service.price}</strong><span>${service.rating.toFixed(1)}</span></div>
+            <div class="price-row"><strong>Starts at ${formatIDR(service.price)}</strong><span>${service.rating.toFixed(1)}</span></div>
           </div>
         </article>`
     )
@@ -84,7 +89,7 @@ function renderPopular(style) {
           <img src="${service.image}" alt="${escapeHTML(service.title)}" loading="lazy">
           <div class="card-body">
             <h3>${escapeHTML(service.title)}</h3>
-            <div class="rating-row"><span>${service.rating} (${service.reviews} Reviews)</span><strong>From $${service.price}</strong></div>
+            <div class="rating-row"><span>${service.rating} (${service.reviews} Reviews)</span><strong>From ${formatIDR(service.price)}</strong></div>
             <p>${service.bookings} Bookings &middot; ${escapeHTML(service.area)}</p>
           </div>
         </article>`

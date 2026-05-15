@@ -1,37 +1,336 @@
-{
-  "areas": ["Canggu", "Karangasem", "Singaraja", "Ubud", "Seminyak", "Denpasar", "Kuta", "Sanur", "Uluwatu", "Amed"],
-  "styles": ["Realism", "Blackwork", "Japanese", "Fine Line", "Balinese Style", "Geometric", "Minimalist", "Traditional"],
-  "categories": [
-    { "name": "Realism", "count": 8, "image": "https://images.unsplash.com/photo-1612459284970-e8f027596582?auto=format&fit=crop&w=400&q=80" },
-    { "name": "Blackwork", "count": 12, "image": "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?auto=format&fit=crop&w=400&q=80" },
-    { "name": "Japanese", "count": 6, "image": "https://images.unsplash.com/photo-1541123437800-1bb1317badc2?auto=format&fit=crop&w=400&q=80" },
-    { "name": "Fine Line", "count": 10, "image": "https://images.unsplash.com/photo-1614086611768-2bd3e3c9f65f?auto=format&fit=crop&w=400&q=80" },
-    { "name": "Balinese Style", "count": 9, "image": "https://images.unsplash.com/photo-1562962230-16e4623d36e6?auto=format&fit=crop&w=400&q=80" }
-  ],
-  "services": [
-    { "id": "svc-01", "artistId": "art-01", "title": "Balinese Ornamental Sleeve", "style": "Balinese Style", "area": "Canggu", "price": 220, "rating": 5, "reviews": 31, "bookings": 18, "image": "https://images.unsplash.com/photo-1562962230-16e4623d36e6?auto=format&fit=crop&w=800&q=80" },
-    { "id": "svc-02", "artistId": "art-03", "title": "Japanese Dragon Tattoo", "style": "Japanese", "area": "Singaraja", "price": 280, "rating": 4.9, "reviews": 24, "bookings": 14, "image": "https://images.unsplash.com/photo-1541123437800-1bb1317badc2?auto=format&fit=crop&w=800&q=80" },
-    { "id": "svc-03", "artistId": "art-04", "title": "Fine Line Travel Tattoo", "style": "Fine Line", "area": "Seminyak", "price": 95, "rating": 4.8, "reviews": 46, "bookings": 27, "image": "https://images.unsplash.com/photo-1614086611768-2bd3e3c9f65f?auto=format&fit=crop&w=800&q=80" },
-    { "id": "svc-04", "artistId": "art-02", "title": "Blackwork Mandala Chest", "style": "Blackwork", "area": "Ubud", "price": 180, "rating": 5, "reviews": 19, "bookings": 11, "image": "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?auto=format&fit=crop&w=800&q=80" },
-    { "id": "svc-05", "artistId": "art-07", "title": "Realism Portrait Session", "style": "Realism", "area": "Denpasar", "price": 250, "rating": 4.9, "reviews": 17, "bookings": 9, "image": "https://images.unsplash.com/photo-1612459284970-e8f027596582?auto=format&fit=crop&w=800&q=80" },
-    { "id": "svc-06", "artistId": "art-04", "title": "Minimalist Symbol Tattoo", "style": "Minimalist", "area": "Kuta", "price": 75, "rating": 4.7, "reviews": 38, "bookings": 25, "image": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80" },
-    { "id": "svc-07", "artistId": "art-06", "title": "Geometric Forearm Work", "style": "Geometric", "area": "Sanur", "price": 165, "rating": 4.8, "reviews": 21, "bookings": 12, "image": "https://images.unsplash.com/photo-1561214115-f2f134cc4912?auto=format&fit=crop&w=800&q=80" },
-    { "id": "svc-08", "artistId": "art-08", "title": "Traditional Flash Tattoo", "style": "Traditional", "area": "Uluwatu", "price": 120, "rating": 4.9, "reviews": 29, "bookings": 16, "image": "https://images.unsplash.com/photo-1584824486539-53bb4646bdbc?auto=format&fit=crop&w=800&q=80" }
-  ],
-  "artists": [
-    { "id": "art-01", "name": "Made Arya Ink", "studio": "Canggu Ritual Ink", "area": "Canggu", "style": "Balinese Style", "rating": 5, "featured": true, "experience": 11, "completed": 186, "response": "Within 2 hours", "verified": "Identity, studio hygiene, portfolio", "languages": ["Indonesian", "English"], "bio": "Balinese ornamental specialist focused on sacred pattern flow, black composition, and custom island-inspired sleeves.", "image": "https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?auto=format&fit=crop&w=700&q=80", "cover": "https://images.unsplash.com/photo-1562962230-16e4623d36e6?auto=format&fit=crop&w=1600&q=80" },
-    { "id": "art-02", "name": "Nala Prameswari", "studio": "Ubud Sacred Lines", "area": "Ubud", "style": "Fine Line", "rating": 4.9, "featured": true, "experience": 7, "completed": 132, "response": "Same day", "verified": "Identity, portfolio, studio policy", "languages": ["Indonesian", "English"], "bio": "Fine line and ceremonial geometry artist creating elegant mandalas, botanicals, and refined body placement.", "image": "https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?auto=format&fit=crop&w=700&q=80", "cover": "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?auto=format&fit=crop&w=1600&q=80" },
-    { "id": "art-03", "name": "Kadek Black Needle", "studio": "Singaraja Dragon Room", "area": "Singaraja", "style": "Japanese", "rating": 4.8, "featured": false, "experience": 9, "completed": 104, "response": "Within 4 hours", "verified": "Identity, portfolio", "languages": ["Indonesian", "English"], "bio": "Japanese dragon, koi, mask, and wave compositions with bold black structure and sleeve planning.", "image": "https://images.unsplash.com/photo-1603775020644-eb8decd79994?auto=format&fit=crop&w=700&q=80", "cover": "https://images.unsplash.com/photo-1541123437800-1bb1317badc2?auto=format&fit=crop&w=1600&q=80" },
-    { "id": "art-04", "name": "Sari Dewi", "studio": "Seminyak Tiny Ink", "area": "Seminyak", "style": "Minimalist", "rating": 4.9, "featured": true, "experience": 6, "completed": 210, "response": "Within 1 hour", "verified": "Identity, studio hygiene, reviews", "languages": ["Indonesian", "English"], "bio": "Minimalist, tiny travel tattoos, fine line symbols, and clean healed work for first-time clients.", "image": "https://images.unsplash.com/photo-1512316609839-ce289d3eba0a?auto=format&fit=crop&w=700&q=80", "cover": "https://images.unsplash.com/photo-1614086611768-2bd3e3c9f65f?auto=format&fit=crop&w=1600&q=80" },
-    { "id": "art-05", "name": "Wayan Shadow", "studio": "Karangasem Black Studio", "area": "Karangasem", "style": "Blackwork", "rating": 4.8, "featured": false, "experience": 10, "completed": 118, "response": "Within 3 hours", "verified": "Identity, portfolio", "languages": ["Indonesian"], "bio": "Large blackwork, symbolic pattern, and strong negative-space tattoos built around body movement.", "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=700&q=80", "cover": "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?auto=format&fit=crop&w=1600&q=80" },
-    { "id": "art-06", "name": "Ari Moon Bali", "studio": "Sanur Geometry Lab", "area": "Sanur", "style": "Geometric", "rating": 4.7, "featured": false, "experience": 5, "completed": 92, "response": "Same day", "verified": "Identity, reviews", "languages": ["Indonesian", "English"], "bio": "Geometric and lunar-inspired tattoos with soft linework, symmetry, and subtle detail.", "image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=700&q=80", "cover": "https://images.unsplash.com/photo-1561214115-f2f134cc4912?auto=format&fit=crop&w=1600&q=80" },
-    { "id": "art-07", "name": "Rio Dharma", "studio": "Denpasar Real Ink", "area": "Denpasar", "style": "Realism", "rating": 5, "featured": true, "experience": 12, "completed": 156, "response": "Within 2 hours", "verified": "Identity, studio hygiene, portfolio", "languages": ["Indonesian", "English"], "bio": "Realism artist for portraits, animals, and black-grey shading with detailed consultation before booking.", "image": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=700&q=80", "cover": "https://images.unsplash.com/photo-1612459284970-e8f027596582?auto=format&fit=crop&w=1600&q=80" },
-    { "id": "art-08", "name": "Luh Ayu Lines", "studio": "Amed Traditional Ink", "area": "Amed", "style": "Traditional", "rating": 4.8, "featured": false, "experience": 8, "completed": 127, "response": "Within 5 hours", "verified": "Identity, portfolio, reviews", "languages": ["Indonesian", "English"], "bio": "Traditional flash, bold linework, Bali travel tattoos, and clean appointment handling.", "image": "https://images.unsplash.com/photo-1534751516642-a1af1ef26a56?auto=format&fit=crop&w=700&q=80", "cover": "https://images.unsplash.com/photo-1584824486539-53bb4646bdbc?auto=format&fit=crop&w=1600&q=80" }
-  ],
-  "reviews": [
-    { "artistId": "art-01", "name": "Maya Collins", "rating": 5, "comment": "Found a Canggu artist fast. The listing was clear and marketplace booking made everything simple." },
-    { "artistId": "art-02", "name": "Dewa Putra", "rating": 5, "comment": "The Balinese style category helped me compare portfolios without jumping between social pages." },
-    { "artistId": "art-07", "name": "Anna Lee", "rating": 5, "comment": "Pricing, reviews, and area filters made the search feel professional and trustworthy." },
-    { "artistId": "art-04", "name": "Oliver Grant", "rating": 4, "comment": "Booked a fine line tattoo in Seminyak and loved how direct the request process felt." }
-  ]
+﻿{
+    "areas":  [
+                  "Canggu",
+                  "Karangasem",
+                  "Singaraja",
+                  "Ubud",
+                  "Seminyak",
+                  "Denpasar",
+                  "Kuta",
+                  "Sanur",
+                  "Uluwatu",
+                  "Amed"
+              ],
+    "styles":  [
+                   "Realism",
+                   "Blackwork",
+                   "Japanese",
+                   "Fine Line",
+                   "Balinese Style",
+                   "Geometric",
+                   "Minimalist",
+                   "Traditional"
+               ],
+    "categories":  [
+                       {
+                           "name":  "Realism",
+                           "count":  8,
+                           "image":  "https://images.unsplash.com/photo-1612459284970-e8f027596582?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
+                       },
+                       {
+                           "name":  "Blackwork",
+                           "count":  12,
+                           "image":  "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
+                       },
+                       {
+                           "name":  "Japanese",
+                           "count":  6,
+                           "image":  "https://images.unsplash.com/photo-1541123437800-1bb1317badc2?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
+                       },
+                       {
+                           "name":  "Fine Line",
+                           "count":  10,
+                           "image":  "https://images.unsplash.com/photo-1614086611768-2bd3e3c9f65f?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
+                       },
+                       {
+                           "name":  "Balinese Style",
+                           "count":  9,
+                           "image":  "https://images.unsplash.com/photo-1562962230-16e4623d36e6?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
+                       }
+                   ],
+    "services":  [
+                     {
+                         "id":  "svc-01",
+                         "artistId":  "art-01",
+                         "title":  "Balinese Ornamental Sleeve",
+                         "style":  "Balinese Style",
+                         "area":  "Canggu",
+                         "price":  3500000,
+                         "rating":  5,
+                         "reviews":  31,
+                         "bookings":  18,
+                         "image":  "https://images.unsplash.com/photo-1562962230-16e4623d36e6?auto=format\u0026fit=crop\u0026w=800\u0026q=80"
+                     },
+                     {
+                         "id":  "svc-02",
+                         "artistId":  "art-03",
+                         "title":  "Japanese Dragon Tattoo",
+                         "style":  "Japanese",
+                         "area":  "Singaraja",
+                         "price":  4500000,
+                         "rating":  4.9,
+                         "reviews":  24,
+                         "bookings":  14,
+                         "image":  "https://images.unsplash.com/photo-1541123437800-1bb1317badc2?auto=format\u0026fit=crop\u0026w=800\u0026q=80"
+                     },
+                     {
+                         "id":  "svc-03",
+                         "artistId":  "art-04",
+                         "title":  "Fine Line Travel Tattoo",
+                         "style":  "Fine Line",
+                         "area":  "Seminyak",
+                         "price":  900000,
+                         "rating":  4.8,
+                         "reviews":  46,
+                         "bookings":  27,
+                         "image":  "https://images.unsplash.com/photo-1614086611768-2bd3e3c9f65f?auto=format\u0026fit=crop\u0026w=800\u0026q=80"
+                     },
+                     {
+                         "id":  "svc-04",
+                         "artistId":  "art-02",
+                         "title":  "Blackwork Mandala Chest",
+                         "style":  "Blackwork",
+                         "area":  "Ubud",
+                         "price":  2800000,
+                         "rating":  5,
+                         "reviews":  19,
+                         "bookings":  11,
+                         "image":  "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?auto=format\u0026fit=crop\u0026w=800\u0026q=80"
+                     },
+                     {
+                         "id":  "svc-05",
+                         "artistId":  "art-07",
+                         "title":  "Realism Portrait Session",
+                         "style":  "Realism",
+                         "area":  "Denpasar",
+                         "price":  4000000,
+                         "rating":  4.9,
+                         "reviews":  17,
+                         "bookings":  9,
+                         "image":  "https://images.unsplash.com/photo-1612459284970-e8f027596582?auto=format\u0026fit=crop\u0026w=800\u0026q=80"
+                     },
+                     {
+                         "id":  "svc-06",
+                         "artistId":  "art-04",
+                         "title":  "Minimalist Symbol Tattoo",
+                         "style":  "Minimalist",
+                         "area":  "Kuta",
+                         "price":  650000,
+                         "rating":  4.7,
+                         "reviews":  38,
+                         "bookings":  25,
+                         "image":  "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format\u0026fit=crop\u0026w=800\u0026q=80"
+                     },
+                     {
+                         "id":  "svc-07",
+                         "artistId":  "art-06",
+                         "title":  "Geometric Forearm Work",
+                         "style":  "Geometric",
+                         "area":  "Sanur",
+                         "price":  2200000,
+                         "rating":  4.8,
+                         "reviews":  21,
+                         "bookings":  12,
+                         "image":  "https://images.unsplash.com/photo-1561214115-f2f134cc4912?auto=format\u0026fit=crop\u0026w=800\u0026q=80"
+                     },
+                     {
+                         "id":  "svc-08",
+                         "artistId":  "art-08",
+                         "title":  "Traditional Flash Tattoo",
+                         "style":  "Traditional",
+                         "area":  "Uluwatu",
+                         "price":  1500000,
+                         "rating":  4.9,
+                         "reviews":  29,
+                         "bookings":  16,
+                         "image":  "https://images.unsplash.com/photo-1584824486539-53bb4646bdbc?auto=format\u0026fit=crop\u0026w=800\u0026q=80"
+                     }
+                 ],
+    "artists":  [
+                    {
+                        "id":  "art-01",
+                        "name":  "Made Arya Ink",
+                        "studio":  "Canggu Ritual Ink",
+                        "area":  "Canggu",
+                        "style":  "Balinese Style",
+                        "rating":  5,
+                        "featured":  true,
+                        "experience":  11,
+                        "completed":  186,
+                        "response":  "Within 2 hours",
+                        "verified":  "Identity, studio hygiene, portfolio",
+                        "languages":  [
+                                          "Indonesian",
+                                          "English"
+                                      ],
+                        "bio":  "Balinese ornamental specialist focused on sacred pattern flow, black composition, and custom island-inspired sleeves.",
+                        "image":  "https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?auto=format\u0026fit=crop\u0026w=700\u0026q=80",
+                        "cover":  "https://images.unsplash.com/photo-1562962230-16e4623d36e6?auto=format\u0026fit=crop\u0026w=1600\u0026q=80"
+                    },
+                    {
+                        "id":  "art-02",
+                        "name":  "Nala Prameswari",
+                        "studio":  "Ubud Sacred Lines",
+                        "area":  "Ubud",
+                        "style":  "Fine Line",
+                        "rating":  4.9,
+                        "featured":  true,
+                        "experience":  7,
+                        "completed":  132,
+                        "response":  "Same day",
+                        "verified":  "Identity, portfolio, studio policy",
+                        "languages":  [
+                                          "Indonesian",
+                                          "English"
+                                      ],
+                        "bio":  "Fine line and ceremonial geometry artist creating elegant mandalas, botanicals, and refined body placement.",
+                        "image":  "https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?auto=format\u0026fit=crop\u0026w=700\u0026q=80",
+                        "cover":  "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?auto=format\u0026fit=crop\u0026w=1600\u0026q=80"
+                    },
+                    {
+                        "id":  "art-03",
+                        "name":  "Kadek Black Needle",
+                        "studio":  "Singaraja Dragon Room",
+                        "area":  "Singaraja",
+                        "style":  "Japanese",
+                        "rating":  4.8,
+                        "featured":  false,
+                        "experience":  9,
+                        "completed":  104,
+                        "response":  "Within 4 hours",
+                        "verified":  "Identity, portfolio",
+                        "languages":  [
+                                          "Indonesian",
+                                          "English"
+                                      ],
+                        "bio":  "Japanese dragon, koi, mask, and wave compositions with bold black structure and sleeve planning.",
+                        "image":  "https://images.unsplash.com/photo-1603775020644-eb8decd79994?auto=format\u0026fit=crop\u0026w=700\u0026q=80",
+                        "cover":  "https://images.unsplash.com/photo-1541123437800-1bb1317badc2?auto=format\u0026fit=crop\u0026w=1600\u0026q=80"
+                    },
+                    {
+                        "id":  "art-04",
+                        "name":  "Sari Dewi",
+                        "studio":  "Seminyak Tiny Ink",
+                        "area":  "Seminyak",
+                        "style":  "Minimalist",
+                        "rating":  4.9,
+                        "featured":  true,
+                        "experience":  6,
+                        "completed":  210,
+                        "response":  "Within 1 hour",
+                        "verified":  "Identity, studio hygiene, reviews",
+                        "languages":  [
+                                          "Indonesian",
+                                          "English"
+                                      ],
+                        "bio":  "Minimalist, tiny travel tattoos, fine line symbols, and clean healed work for first-time clients.",
+                        "image":  "https://images.unsplash.com/photo-1512316609839-ce289d3eba0a?auto=format\u0026fit=crop\u0026w=700\u0026q=80",
+                        "cover":  "https://images.unsplash.com/photo-1614086611768-2bd3e3c9f65f?auto=format\u0026fit=crop\u0026w=1600\u0026q=80"
+                    },
+                    {
+                        "id":  "art-05",
+                        "name":  "Wayan Shadow",
+                        "studio":  "Karangasem Black Studio",
+                        "area":  "Karangasem",
+                        "style":  "Blackwork",
+                        "rating":  4.8,
+                        "featured":  false,
+                        "experience":  10,
+                        "completed":  118,
+                        "response":  "Within 3 hours",
+                        "verified":  "Identity, portfolio",
+                        "languages":  [
+                                          "Indonesian"
+                                      ],
+                        "bio":  "Large blackwork, symbolic pattern, and strong negative-space tattoos built around body movement.",
+                        "image":  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format\u0026fit=crop\u0026w=700\u0026q=80",
+                        "cover":  "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?auto=format\u0026fit=crop\u0026w=1600\u0026q=80"
+                    },
+                    {
+                        "id":  "art-06",
+                        "name":  "Ari Moon Bali",
+                        "studio":  "Sanur Geometry Lab",
+                        "area":  "Sanur",
+                        "style":  "Geometric",
+                        "rating":  4.7,
+                        "featured":  false,
+                        "experience":  5,
+                        "completed":  92,
+                        "response":  "Same day",
+                        "verified":  "Identity, reviews",
+                        "languages":  [
+                                          "Indonesian",
+                                          "English"
+                                      ],
+                        "bio":  "Geometric and lunar-inspired tattoos with soft linework, symmetry, and subtle detail.",
+                        "image":  "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format\u0026fit=crop\u0026w=700\u0026q=80",
+                        "cover":  "https://images.unsplash.com/photo-1561214115-f2f134cc4912?auto=format\u0026fit=crop\u0026w=1600\u0026q=80"
+                    },
+                    {
+                        "id":  "art-07",
+                        "name":  "Rio Dharma",
+                        "studio":  "Denpasar Real Ink",
+                        "area":  "Denpasar",
+                        "style":  "Realism",
+                        "rating":  5,
+                        "featured":  true,
+                        "experience":  12,
+                        "completed":  156,
+                        "response":  "Within 2 hours",
+                        "verified":  "Identity, studio hygiene, portfolio",
+                        "languages":  [
+                                          "Indonesian",
+                                          "English"
+                                      ],
+                        "bio":  "Realism artist for portraits, animals, and black-grey shading with detailed consultation before booking.",
+                        "image":  "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format\u0026fit=crop\u0026w=700\u0026q=80",
+                        "cover":  "https://images.unsplash.com/photo-1612459284970-e8f027596582?auto=format\u0026fit=crop\u0026w=1600\u0026q=80"
+                    },
+                    {
+                        "id":  "art-08",
+                        "name":  "Luh Ayu Lines",
+                        "studio":  "Amed Traditional Ink",
+                        "area":  "Amed",
+                        "style":  "Traditional",
+                        "rating":  4.8,
+                        "featured":  false,
+                        "experience":  8,
+                        "completed":  127,
+                        "response":  "Within 5 hours",
+                        "verified":  "Identity, portfolio, reviews",
+                        "languages":  [
+                                          "Indonesian",
+                                          "English"
+                                      ],
+                        "bio":  "Traditional flash, bold linework, Bali travel tattoos, and clean appointment handling.",
+                        "image":  "https://images.unsplash.com/photo-1534751516642-a1af1ef26a56?auto=format\u0026fit=crop\u0026w=700\u0026q=80",
+                        "cover":  "https://images.unsplash.com/photo-1584824486539-53bb4646bdbc?auto=format\u0026fit=crop\u0026w=1600\u0026q=80"
+                    }
+                ],
+    "reviews":  [
+                    {
+                        "artistId":  "art-01",
+                        "name":  "Maya Collins",
+                        "rating":  5,
+                        "comment":  "Found a Canggu artist fast. The listing was clear and marketplace booking made everything simple."
+                    },
+                    {
+                        "artistId":  "art-02",
+                        "name":  "Dewa Putra",
+                        "rating":  5,
+                        "comment":  "The Balinese style category helped me compare portfolios without jumping between social pages."
+                    },
+                    {
+                        "artistId":  "art-07",
+                        "name":  "Anna Lee",
+                        "rating":  5,
+                        "comment":  "Pricing, reviews, and area filters made the search feel professional and trustworthy."
+                    },
+                    {
+                        "artistId":  "art-04",
+                        "name":  "Oliver Grant",
+                        "rating":  4,
+                        "comment":  "Booked a fine line tattoo in Seminyak and loved how direct the request process felt."
+                    }
+                ]
 }
