@@ -13,13 +13,13 @@
               ],
     "styles":  [
                    "American Traditional (Old School)",
-                   "Realism (Realitis)",
-                   "Japanese Irezumi (Tradisional Jepang)",
-                   "Tribal (Kesukuan)",
-                   "Biomechanical (Biomekanik)",
+                   "Realism (Realistic)",
+                   "Japanese Irezumi (Traditional Japanese)",
+                   "Tribal (Tribal Style)",
+                   "Biomechanical (Biomechanics)",
                    "Geometric \u0026 Ornamental",
                    "Neo-Traditional",
-                   "Watercolor (Cat Air)",
+                   "Watercolor (Watercolor Painting)",
                    "Blackwork \u0026 Blackout",
                    "Trash Polka",
                    "Fine Line \u0026 Micro-Realism",
@@ -30,18 +30,18 @@
                    "Ignorant Style",
                    "Cyberpunk / Glitch",
                    "New School",
-                   "Surrealism (Surealisme)",
+                   "Surrealism (Surrealist)",
                    "Dotwork (Stippling)",
-                   "Illustrative (Ilustratif)",
-                   "Portraiture (Potret Wajah)",
+                   "Illustrative (Illustration)",
+                   "Portraiture (Face Portrait)",
                    "Stick and Poke (Hand-Poked)",
-                   "Lettering / Script (Kaligrafi Kulit)",
+                   "Lettering / Script (Skin Calligraphy)",
                    "Cyber Sigilism (Nu-Tribal)",
                    "Patchwork Style",
                    "Blast-Over",
                    "Abstract Expressionism (Brushstroke)",
                    "American Folk Art",
-                   "Woodcut / Engraving (Ukir Kayu)",
+                   "Woodcut / Engraving (Wood Carving)",
                    "Black \u0026 Grey Realism",
                    "Color Realism",
                    "Polynesians / Marquesan",
@@ -62,22 +62,22 @@
                            "image":  "https://images.unsplash.com/photo-1584824486539-53bb4646bdbc?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
                        },
                        {
-                           "name":  "Realism (Realitis)",
+                           "name":  "Realism (Realistic)",
                            "count":  7,
                            "image":  "https://images.unsplash.com/photo-1612459284970-e8f027596582?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
                        },
                        {
-                           "name":  "Japanese Irezumi (Tradisional Jepang)",
+                           "name":  "Japanese Irezumi (Traditional Japanese)",
                            "count":  10,
                            "image":  "https://images.unsplash.com/photo-1541123437800-1bb1317badc2?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
                        },
                        {
-                           "name":  "Tribal (Kesukuan)",
+                           "name":  "Tribal (Tribal Style)",
                            "count":  13,
                            "image":  "https://images.unsplash.com/photo-1562962230-16e4623d36e6?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
                        },
                        {
-                           "name":  "Biomechanical (Biomekanik)",
+                           "name":  "Biomechanical (Biomechanics)",
                            "count":  16,
                            "image":  "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
                        },
@@ -92,7 +92,7 @@
                            "image":  "https://images.unsplash.com/photo-1565058379802-bbe93b2f703a?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
                        },
                        {
-                           "name":  "Watercolor (Cat Air)",
+                           "name":  "Watercolor (Watercolor Painting)",
                            "count":  7,
                            "image":  "https://images.unsplash.com/photo-1614086611768-2bd3e3c9f65f?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
                        },
@@ -147,7 +147,7 @@
                            "image":  "https://images.unsplash.com/photo-1612459284970-e8f027596582?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
                        },
                        {
-                           "name":  "Surrealism (Surealisme)",
+                           "name":  "Surrealism (Surrealist)",
                            "count":  4,
                            "image":  "https://images.unsplash.com/photo-1541123437800-1bb1317badc2?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
                        },
@@ -157,12 +157,12 @@
                            "image":  "https://images.unsplash.com/photo-1562962230-16e4623d36e6?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
                        },
                        {
-                           "name":  "Illustrative (Ilustratif)",
+                           "name":  "Illustrative (Illustration)",
                            "count":  10,
                            "image":  "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
                        },
                        {
-                           "name":  "Portraiture (Potret Wajah)",
+                           "name":  "Portraiture (Face Portrait)",
                            "count":  13,
                            "image":  "https://images.unsplash.com/photo-1561214115-f2f134cc4912?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
                        },
@@ -172,7 +172,7 @@
                            "image":  "https://images.unsplash.com/photo-1565058379802-bbe93b2f703a?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
                        },
                        {
-                           "name":  "Lettering / Script (Kaligrafi Kulit)",
+                           "name":  "Lettering / Script (Skin Calligraphy)",
                            "count":  19,
                            "image":  "https://images.unsplash.com/photo-1614086611768-2bd3e3c9f65f?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
                        },
@@ -202,7 +202,7 @@
                            "image":  "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
                        },
                        {
-                           "name":  "Woodcut / Engraving (Ukir Kayu)",
+                           "name":  "Woodcut / Engraving (Wood Carving)",
                            "count":  19,
                            "image":  "https://images.unsplash.com/photo-1561214115-f2f134cc4912?auto=format\u0026fit=crop\u0026w=400\u0026q=80"
                        },
