@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Chat with Devs, the BALI INK HUB assistant for tattoo services, artists, booking, aftercare, and marketplace guidance." />
+    <meta name="theme-color" content="#070403" />
+    <title>Devs AI Assistant | BALI INK HUB</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header" id="top">
+      <div class="container nav">
+        <a class="brand" href="index.html" aria-label="BALI INK HUB home">
+          <img src="assets/images/logo.png" alt="BALI INK HUB logo" />
+          <span><strong>BALI INK HUB</strong><small>BALI INK TATTO</small></span>
+        </a>
+
+        <nav class="nav-menu">
+          <a href="index.html#categories">Categories</a>
+          <a href="index.html#services">Services</a>
+          <a href="index.html#artists">Artists</a>
+          <a href="assistant.html">AI Assistant</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a class="ghost-btn" href="index.html">Back Home</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="assistant-page">
+      <section class="container assistant-shell">
+        <aside class="assistant-profile">
+          <span class="eyebrow">AI Assistant</span>
+          <h1>Devs</h1>
+          <p>Ask about Bali tattoo artists, styles, service mode, booking flow, location, aftercare, and pricing estimates.</p>
+          <div class="assistant-sources">
+            <strong>Knowledge sources</strong>
+            <span>Internal marketplace data</span>
+            <span>BALI INK HUB service flow</span>
+            <span>General tattoo guidance</span>
+          </div>
+        </aside>
+
+        <section class="chat-panel" aria-label="Devs chat assistant">
+          <div class="chat-header">
+            <div>
+              <span class="assistant-orb">D</span>
+              <div>
+                <strong>Devs</strong>
+                <small>Online · Bali Ink Hub Assistant</small>
+              </div>
+            </div>
+            <button class="ghost-btn" type="button" data-clear-chat>Clear</button>
+          </div>
+
+          <div class="chat-messages" data-chat-messages></div>
+
+          <div class="quick-prompts">
+            <button type="button" data-prompt="Recommend an artist in Canggu">Canggu artist</button>
+            <button type="button" data-prompt="What is the difference between in-studio and mobile service?">Service mode</button>
+            <button type="button" data-prompt="How much is a fine line tattoo?">Pricing</button>
+            <button type="button" data-prompt="Give me tattoo aftercare tips">Aftercare</button>
+          </div>
+
+          <form class="chat-form" data-chat-form>
+            <input name="message" autocomplete="off" placeholder="Ask Devs anything about Bali Ink Hub..." required />
+            <button class="gold-btn" type="submit">Send</button>
+          </form>
+        </section>
+      </section>
+    </main>
+
+    <nav class="mobile-app-nav" aria-label="Mobile app navigation">
+      <a href="index.html"><span>⌂</span>Home</a>
+      <a href="index.html#categories"><span>▤</span>Category</a>
+      <a href="assistant.html" class="nav-book active"><span>D</span>Devs</a>
+      <a href="index.html#services"><span>✦</span>Service</a>
+      <a href="index.html#artists"><span>◎</span>Artist</a>
+    </nav>
+
+    <script type="module" src="assets/js/assistant.js"></script>
+  </body>
+</html>
