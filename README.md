@@ -24,6 +24,7 @@ BALI INK HUB/
 │   ├── images/
 │   │   └── logo.png
 │   └── js/
+│       ├── assistant.js
 │       ├── main.js
 │       └── studio.js
 └── data/
@@ -48,10 +49,21 @@ BALI INK HUB/
 - Tombol `View Studio` pada card artist
 - Artist studio page
 - Marketplace booking modal
+- Floating Devs AI assistant widget
 - Reviews
 - Availability preview
 - Booking policies
 - Responsive mobile layout
+
+## Devs AI Assistant
+
+Widget chat floating tersedia di `index.html` dan `studio.html` melalui:
+
+```text
+assets/js/assistant.js
+```
+
+Widget dapat dibuka dari icon floating kanan bawah atau tombol `AI Assistant`. Devs membaca dummy database internal untuk membantu menjawab rekomendasi artist, style, estimasi harga, booking service, payment flow, dan aftercare dasar.
 
 ## Artist Studio Page
 
@@ -68,7 +80,7 @@ Halaman studio artist memiliki:
 - Booking policies
 - Booking service melalui platform marketplace
 
-Tidak ada CTA WhatsApp, chat, atau call karena flow booking diarahkan sepenuhnya ke platform.
+Tidak ada CTA WhatsApp atau call langsung ke artist karena flow booking diarahkan sepenuhnya ke platform.
 
 ## Data Dummy
 
