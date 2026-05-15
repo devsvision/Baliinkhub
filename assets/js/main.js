@@ -69,7 +69,7 @@ function fillFilters() {
 }
 
 function renderCategories() {
-  const categories = state.showAllCategories ? state.marketplace.categories : state.marketplace.categories.slice(0, 10);
+  const categories = state.showAllCategories ? state.marketplace.categories : state.marketplace.categories.slice(0, 12);
   $("[data-category-grid]").innerHTML = categories
     .map(
       (category) => `

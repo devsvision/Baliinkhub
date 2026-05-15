@@ -490,7 +490,7 @@ textarea {
 }
 
 .category-grid {
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .service-grid,
@@ -524,9 +524,8 @@ textarea {
 
 .category-card {
   display: grid;
-  min-height: 96px;
-  gap: 8px;
-  align-items: center;
+  min-height: 112px;
+  align-items: start;
   padding: 18px;
   cursor: pointer;
 }
@@ -553,10 +552,15 @@ textarea {
 
 .category-card h3 {
   font-size: 15px;
+  display: -webkit-box;
+  min-height: 40px;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .category-card p {
-  margin: 8px 0 0;
+  margin: 14px 0 0;
 }
 
 
