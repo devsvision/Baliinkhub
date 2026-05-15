@@ -1,6 +1,6 @@
 # BALI INK HUB
 
-BALI INK HUB adalah prototype marketplace jasa tattoo artist khusus area Bali. Project ini dibuat sebagai static web app ringan dengan HTML, CSS, Vanilla JavaScript, dan JSON dummy database. Fokus utamanya adalah pengalaman marketplace: client dapat mencari jasa tattoo, melihat artist, masuk ke halaman studio artist, membandingkan service, dan mengirim request booking melalui platform.
+BALI INK HUB adalah prototype marketplace jasa tattoo artist khusus area Bali. Project ini dibuat sebagai static web app ringan dengan HTML, CSS, Vanilla JavaScript, dan JSON dummy database. Fokus utamanya adalah pengalaman marketplace: client dapat mencari jasa tattoo, melihat artist, masuk ke halaman studio artist, membandingkan service, dan booking service melalui platform.
 
 ## Tech Stack
 
@@ -66,7 +66,7 @@ Halaman studio artist memiliki:
 - Availability preview
 - Client reviews
 - Booking policies
-- Request booking melalui platform marketplace
+- Booking service melalui platform marketplace
 
 Tidak ada CTA WhatsApp, chat, atau call karena flow booking diarahkan sepenuhnya ke platform.
 
@@ -169,4 +169,3 @@ Logo utama berada di:
 ```text
 assets/images/logo.png
 ```
-

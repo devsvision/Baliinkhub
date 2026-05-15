@@ -11,6 +11,18 @@ const formatIDR = (value) => new Intl.NumberFormat("id-ID", {
   currency: "IDR",
   maximumFractionDigits: 0
 }).format(value);
+const transportFees = {
+  Canggu: 150000,
+  Karangasem: 350000,
+  Singaraja: 400000,
+  Ubud: 250000,
+  Seminyak: 150000,
+  Denpasar: 120000,
+  Kuta: 150000,
+  Sanur: 160000,
+  Uluwatu: 280000,
+  Amed: 380000
+};
 
 document.addEventListener("DOMContentLoaded", async () => {
   state.marketplace = await fetchMarketplace();
@@ -33,12 +45,18 @@ async function fetchMarketplace() {
 function fillFilters() {
   const areaSelect = $("[name='area']");
   const styleSelect = $("[name='style']");
-  const artistSelect = $("[name='artist']");
+  const serviceSelect = $("[data-booking-service-select]");
+  const clientLocation = $("[data-client-location]");
   const { areas, styles, artists } = state.marketplace;
 
   areaSelect.innerHTML += areas.map((area) => `<option value="${escapeHTML(area)}">${escapeHTML(area)}</option>`).join("");
   styleSelect.innerHTML += styles.map((style) => `<option value="${escapeHTML(style)}">${escapeHTML(style)}</option>`).join("");
-  artistSelect.innerHTML = artists.map((artist) => `<option value="${escapeHTML(artist.id)}">${escapeHTML(artist.name)} - ${escapeHTML(artist.area)}</option>`).join("");
+  clientLocation.innerHTML = areas.map((area) => `<option value="${escapeHTML(area)}">${escapeHTML(area)}, Bali</option>`).join("");
+  serviceSelect.innerHTML = state.marketplace.services.map((service) => {
+    const artist = artists.find((item) => item.id === service.artistId);
+    return `<option value="${escapeHTML(service.id)}">${escapeHTML(service.title)} - ${escapeHTML(artist?.name || "Artist")} - ${formatIDR(service.price)}</option>`;
+  }).join("");
+  updateBookingSummary($("[data-booking-form]"));
 }
 
 function renderCategories() {
@@ -114,7 +132,7 @@ function renderArtists() {
             <p>${escapeHTML(artist.area)}, Bali</p>
             <div class="artist-actions">
               <a class="ghost-btn" href="studio.html?id=${escapeHTML(artist.id)}">View Studio</a>
-              <button class="gold-btn" type="button" data-open-booking>Request</button>
+              <button class="gold-btn" type="button" data-open-booking>Booking Service</button>
             </div>
           </div>
         </article>`
@@ -184,7 +202,13 @@ function setupEvents() {
   });
 
   $("[data-booking-form]").addEventListener("submit", () => {
-    showToast("Booking request saved in the marketplace flow.");
+    showToast("Booking service submitted in the marketplace flow.");
+  });
+
+  $("[data-booking-form]").addEventListener("change", (event) => {
+    if (event.target.matches("[name='service'], [name='serviceMode'], [name='clientLocation']")) {
+      updateBookingSummary(event.currentTarget);
+    }
   });
 }
 
@@ -199,6 +223,18 @@ function showToast(message) {
   toast.classList.add("show");
   clearTimeout(window.__toast);
   window.__toast = setTimeout(() => toast.classList.remove("show"), 3000);
+}
+
+function updateBookingSummary(form) {
+  if (!form) return;
+  const selectedService = state.marketplace.services.find((service) => service.id === form.elements.service.value) || state.marketplace.services[0];
+  const location = form.elements.clientLocation.value || state.marketplace.areas[0];
+  const mode = form.elements.serviceMode.value;
+  const transport = mode === "mobile" ? transportFees[location] || 0 : 0;
+  form.querySelector("[data-summary-service]").textContent = formatIDR(selectedService.price);
+  form.querySelector("[data-summary-transport]").textContent = formatIDR(transport);
+  form.querySelector("[data-summary-total]").textContent = formatIDR(selectedService.price + transport);
+  form.querySelector("[data-transport-row]").classList.toggle("hidden", mode !== "mobile");
 }
 
 function sanitize(value) {

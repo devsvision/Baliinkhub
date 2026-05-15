@@ -4,6 +4,21 @@ const formatIDR = (value) => new Intl.NumberFormat("id-ID", {
   currency: "IDR",
   maximumFractionDigits: 0
 }).format(value);
+const transportFees = {
+  Canggu: 150000,
+  Karangasem: 350000,
+  Singaraja: 400000,
+  Ubud: 250000,
+  Seminyak: 150000,
+  Denpasar: 120000,
+  Kuta: 150000,
+  Sanur: 160000,
+  Uluwatu: 280000,
+  Amed: 380000
+};
+
+let activeServices = [];
+let activeAreas = [];
 
 document.addEventListener("DOMContentLoaded", async () => {
   const marketplace = await fetchMarketplace();
@@ -11,9 +26,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   const artist = marketplace.artists.find((item) => item.id === artistId) || marketplace.artists[0];
   const services = marketplace.services.filter((service) => service.artistId === artist.id || service.style === artist.style);
   const reviews = marketplace.reviews.filter((review) => review.artistId === artist.id);
+  activeServices = services;
+  activeAreas = marketplace.areas;
 
   renderStudio(artist, services, reviews.length ? reviews : marketplace.reviews.slice(0, 2));
-  fillBookingServices(services);
+  fillBookingForm(services, marketplace.areas);
   setupEvents();
 });
 
@@ -66,7 +83,7 @@ function renderStudio(artist, services, reviews) {
         <article class="studio-panel" id="overview">
           <span class="eyebrow">Studio overview</span>
           <h2>Service profile</h2>
-          <p>${escapeHTML(artist.studio)} is a Bali-based tattoo studio profile inside BALI INK HUB. Clients can compare work, review services, check availability signals, and submit booking requests through the marketplace.</p>
+          <p>${escapeHTML(artist.studio)} is a Bali-based tattoo studio profile inside BALI INK HUB. Clients can compare work, review services, check availability signals, and submit booking services through the marketplace.</p>
           <div class="studio-stats">
             <article><strong>${artist.rating.toFixed(1)}</strong><span>Rating</span></article>
             <article><strong>${artist.completed}</strong><span>Completed</span></article>
@@ -94,7 +111,7 @@ function renderStudio(artist, services, reviews) {
         <article class="studio-panel" id="availability">
           <span class="eyebrow">Calendar</span>
           <h2>Availability preview</h2>
-          <p>Dates shown here are sample marketplace availability slots. Final confirmation happens after the artist reviews the request.</p>
+          <p>Dates shown here are sample marketplace availability slots. Final confirmation happens after the artist reviews the booking service.</p>
           <div class="availability-grid">
             ${Array.from({ length: 21 }, (_, index) => `<span class="${[2, 5, 9, 13, 18].includes(index) ? "available" : ""}">${index + 1}</span>`).join("")}
           </div>
@@ -131,8 +148,8 @@ function renderStudio(artist, services, reviews) {
           <h2>Booking policies</h2>
           <div class="policy-grid">
             <div class="policy-card"><strong>Deposit flow</strong><p>Deposit handling is prepared for platform escrow or payment gateway integration.</p></div>
-            <div class="policy-card"><strong>Design review</strong><p>Artist reviews idea, size, placement, and reference before approving the request.</p></div>
-            <div class="policy-card"><strong>Reschedule</strong><p>Clients can request schedule changes through marketplace booking history.</p></div>
+            <div class="policy-card"><strong>Design review</strong><p>Artist reviews idea, size, placement, and reference before approving the booking service.</p></div>
+            <div class="policy-card"><strong>Reschedule</strong><p>Clients can manage schedule changes through marketplace booking history.</p></div>
             <div class="policy-card"><strong>Verification</strong><p>${escapeHTML(artist.verified)}.</p></div>
           </div>
         </article>
@@ -140,10 +157,10 @@ function renderStudio(artist, services, reviews) {
 
       <aside class="studio-side">
         <div class="studio-panel side-card">
-          <span class="eyebrow">Request booking</span>
+          <span class="eyebrow">Booking service</span>
           <h2>Start from ${formatIDR(Math.min(...services.map((service) => service.price)))}</h2>
-          <p>Send one structured request to the marketplace. The artist reviews it from their studio dashboard before confirmation.</p>
-          <button class="gold-btn" type="button" data-open-studio-booking>Request Booking</button>
+          <p>Send one structured booking to the marketplace. The artist reviews it from their studio dashboard before confirmation.</p>
+          <button class="gold-btn" type="button" data-open-studio-booking>Booking Service</button>
           <a class="ghost-btn" href="index.html#artists">Compare Artists</a>
         </div>
         <div class="studio-panel artist-profile-card">
@@ -194,10 +211,12 @@ function portfolioImages(artist, services) {
   return [...base, artist.cover, artist.image].slice(0, 6);
 }
 
-function fillBookingServices(services) {
+function fillBookingForm(services, areas) {
+  $("[data-client-location]").innerHTML = areas.map((area) => `<option value="${escapeHTML(area)}">${escapeHTML(area)}, Bali</option>`).join("");
   $("[data-studio-service-select]").innerHTML = services
     .map((service) => `<option value="${escapeHTML(service.id)}">${escapeHTML(service.title)} - From ${formatIDR(service.price)}</option>`)
     .join("");
+  updateBookingSummary($("[data-studio-booking-form]"));
 }
 
 function mapEmbedUrl(artist) {
@@ -224,7 +243,13 @@ function setupEvents() {
   });
 
   $("[data-studio-booking-form]").addEventListener("submit", () => {
-    showToast("Marketplace request submitted for artist review.");
+    showToast("Booking service submitted for artist review.");
+  });
+
+  $("[data-studio-booking-form]").addEventListener("change", (event) => {
+    if (event.target.matches("[name='service'], [name='serviceMode'], [name='clientLocation']")) {
+      updateBookingSummary(event.currentTarget);
+    }
   });
 }
 
@@ -234,6 +259,18 @@ function showToast(message) {
   toast.classList.add("show");
   clearTimeout(window.__studioToast);
   window.__studioToast = setTimeout(() => toast.classList.remove("show"), 3000);
+}
+
+function updateBookingSummary(form) {
+  if (!form) return;
+  const selectedService = activeServices.find((service) => service.id === form.elements.service.value) || activeServices[0];
+  const location = form.elements.clientLocation.value || activeAreas[0];
+  const mode = form.elements.serviceMode.value;
+  const transport = mode === "mobile" ? transportFees[location] || 0 : 0;
+  form.querySelector("[data-summary-service]").textContent = formatIDR(selectedService.price);
+  form.querySelector("[data-summary-transport]").textContent = formatIDR(transport);
+  form.querySelector("[data-summary-total]").textContent = formatIDR(selectedService.price + transport);
+  form.querySelector("[data-transport-row]").classList.toggle("hidden", mode !== "mobile");
 }
 
 function escapeHTML(value) {

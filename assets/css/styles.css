@@ -777,6 +777,10 @@ textarea {
   box-shadow: 0 34px 100px rgba(0, 0, 0, 0.55);
 }
 
+.booking-modal {
+  width: min(820px, calc(100% - 30px));
+}
+
 .modal::backdrop {
   background: rgba(0, 0, 0, 0.72);
   backdrop-filter: blur(6px);
@@ -791,6 +795,120 @@ textarea {
 
 .modal-card h2 {
   font-size: 28px;
+}
+
+.booking-card {
+  gap: 18px;
+  max-height: min(88vh, 920px);
+  overflow-y: auto;
+}
+
+.booking-card h2 {
+  font-size: 34px;
+}
+
+.booking-steps {
+  display: grid;
+  gap: 14px;
+}
+
+.booking-step {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 14px;
+  border: 1px solid rgba(215, 173, 84, 0.16);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.045);
+  padding: 16px;
+}
+
+.booking-step > span {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--gold-2), var(--gold));
+  color: #130b07;
+  font-weight: 900;
+}
+
+.booking-step h3 {
+  margin: 0 0 6px;
+  font-size: 17px;
+}
+
+.booking-step p {
+  margin: 0 0 12px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.service-mode-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.service-mode-grid label {
+  display: grid;
+  gap: 7px;
+  border: 1px solid rgba(215, 173, 84, 0.16);
+  border-radius: 18px;
+  background: rgba(7, 4, 3, 0.44);
+  padding: 14px;
+}
+
+.service-mode-grid input {
+  width: auto;
+}
+
+.service-mode-grid strong {
+  color: var(--gold-2);
+}
+
+.service-mode-grid small {
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.booking-fields {
+  display: grid;
+  gap: 12px;
+}
+
+.booking-summary {
+  display: grid;
+  gap: 10px;
+  border: 1px solid rgba(244, 220, 157, 0.22);
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at top right, rgba(215, 173, 84, 0.14), transparent 12rem),
+    rgba(7, 4, 3, 0.52);
+  padding: 16px;
+}
+
+.booking-summary div {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  color: var(--muted);
+}
+
+.booking-summary strong {
+  color: var(--gold-2);
+  text-align: right;
+}
+
+.booking-summary div:last-child {
+  border-top: 1px solid rgba(215, 173, 84, 0.16);
+  padding-top: 10px;
+  color: var(--white);
+  font-weight: 900;
+}
+
+.hidden {
+  display: none !important;
 }
 
 .modal-close {
@@ -1294,6 +1412,16 @@ textarea {
 
   .availability-grid {
     grid-template-columns: repeat(4, 1fr);
+  }
+
+  .booking-step,
+  .service-mode-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .booking-step > span {
+    width: 36px;
+    height: 36px;
   }
 
   .map-info {

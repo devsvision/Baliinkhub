@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="BALI INK HUB artist studio page with portfolio, services, pricing, reviews, policies, and marketplace booking request." />
+    <meta name="description" content="BALI INK HUB artist studio page with portfolio, services, pricing, reviews, policies, and marketplace booking service." />
     <meta name="theme-color" content="#070403" />
     <title>Artist Studio | BALI INK HUB</title>
     <link rel="preconnect" href="https://images.unsplash.com" />
@@ -34,7 +34,7 @@
 
         <div class="nav-actions">
           <a class="ghost-btn" href="index.html#artists">Back</a>
-          <button class="gold-btn" type="button" data-open-studio-booking>Request Booking</button>
+          <button class="gold-btn" type="button" data-open-studio-booking>Booking Service</button>
         </div>
       </div>
     </header>
@@ -43,17 +43,68 @@
       <section class="studio-loading container">Loading artist studio...</section>
     </main>
 
-    <dialog class="modal" data-modal="studio-booking">
-      <form method="dialog" class="modal-card" data-studio-booking-form>
+    <dialog class="modal booking-modal" data-modal="studio-booking">
+      <form method="dialog" class="modal-card booking-card" data-studio-booking-form>
         <button class="modal-close" value="close" aria-label="Close">&times;</button>
-        <span class="eyebrow">Marketplace request</span>
-        <h2>Request this artist</h2>
-        <input name="name" required placeholder="Your name" />
-        <input name="contact" required placeholder="Email or marketplace contact" />
-        <select name="service" required data-studio-service-select></select>
-        <input name="date" type="date" required />
-        <textarea name="idea" required placeholder="Tattoo idea, placement, size, budget, and reference notes"></textarea>
-        <button class="gold-btn" value="submit">Send Marketplace Request</button>
+        <span class="eyebrow">Booking service</span>
+        <h2>Book this artist</h2>
+
+        <div class="booking-steps">
+          <section class="booking-step">
+            <span>1</span>
+            <div>
+              <h3>Client location</h3>
+              <p>Choose your area. Transport fee appears only for mobile service.</p>
+              <select name="clientLocation" required data-client-location></select>
+            </div>
+          </section>
+
+          <section class="booking-step">
+            <span>2</span>
+            <div>
+              <h3>Service mode</h3>
+              <div class="service-mode-grid">
+                <label>
+                  <input type="radio" name="serviceMode" value="studio" checked />
+                  <strong>In-Studio Experience</strong>
+                  <small>For visiting the artist studio.</small>
+                </label>
+                <label>
+                  <input type="radio" name="serviceMode" value="mobile" />
+                  <strong>On-Demand / Mobile Service</strong>
+                  <small>For tattoo service at client location.</small>
+                </label>
+              </div>
+            </div>
+          </section>
+
+          <section class="booking-step">
+            <span>3</span>
+            <div>
+              <h3>Select service</h3>
+              <select name="service" required data-studio-service-select></select>
+            </div>
+          </section>
+
+          <section class="booking-step">
+            <span>4</span>
+            <div class="booking-fields">
+              <h3>Booking details</h3>
+              <input name="name" required placeholder="Your name" />
+              <input name="contact" required placeholder="Email or marketplace contact" />
+              <input name="date" type="date" required />
+              <textarea name="idea" required placeholder="Tattoo idea, placement, size, budget, and reference notes"></textarea>
+            </div>
+          </section>
+        </div>
+
+        <aside class="booking-summary">
+          <div><span>Service price</span><strong data-summary-service>Rp0</strong></div>
+          <div data-transport-row class="hidden"><span>Transport fee</span><strong data-summary-transport>Rp0</strong></div>
+          <div><span>Total estimate</span><strong data-summary-total>Rp0</strong></div>
+        </aside>
+
+        <button class="gold-btn" value="submit">Submit Booking Service</button>
       </form>
     </dialog>
 
