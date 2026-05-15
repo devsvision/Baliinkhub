@@ -1333,6 +1333,10 @@ textarea {
   display: block;
 }
 
+.mobile-app-nav {
+  display: none;
+}
+
 .studio-loading {
   padding: 88px 0;
   color: var(--muted);
@@ -1707,24 +1711,10 @@ textarea {
 }
 
 @media (max-width: 1040px) {
-  .nav-toggle {
-    display: block;
-  }
-
+  .nav-toggle,
   .nav-menu,
   .nav-actions {
     display: none;
-  }
-
-  .nav-menu.open {
-    position: absolute;
-    inset: 82px 16px auto;
-    display: grid;
-    gap: 8px;
-    border: 1px solid var(--line);
-    border-radius: 24px;
-    background: rgba(7, 4, 3, 0.96);
-    padding: 18px;
   }
 
   .hero-grid,
@@ -1763,6 +1753,86 @@ textarea {
 }
 
 @media (max-width: 720px) {
+  body {
+    padding-bottom: 88px;
+  }
+
+  .site-header {
+    position: sticky;
+  }
+
+  .nav {
+    min-height: 60px;
+    justify-content: center;
+  }
+
+  .brand img {
+    width: 62px;
+    height: 44px;
+  }
+
+  .brand strong {
+    font-size: 16px;
+  }
+
+  .mobile-app-nav {
+    position: fixed;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    z-index: 90;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 6px;
+    border: 1px solid rgba(244, 220, 157, 0.26);
+    border-radius: 24px;
+    background:
+      radial-gradient(circle at 50% 0%, rgba(215, 173, 84, 0.18), transparent 12rem),
+      rgba(7, 4, 3, 0.9);
+    padding: 8px;
+    box-shadow: 0 18px 60px rgba(0, 0, 0, 0.55), 0 0 24px rgba(215, 173, 84, 0.1);
+    backdrop-filter: blur(18px);
+  }
+
+  .mobile-app-nav a,
+  .mobile-app-nav button {
+    display: grid;
+    min-width: 0;
+    place-items: center;
+    gap: 4px;
+    border: 0;
+    border-radius: 18px;
+    background: transparent;
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: 900;
+    line-height: 1;
+    padding: 8px 4px;
+  }
+
+  .mobile-app-nav span {
+    display: grid;
+    width: 26px;
+    height: 26px;
+    place-items: center;
+    border-radius: 999px;
+    color: var(--gold-2);
+    font-size: 15px;
+  }
+
+  .mobile-app-nav a.active,
+  .mobile-app-nav a:hover,
+  .mobile-app-nav button:hover {
+    background: rgba(215, 173, 84, 0.13);
+    color: var(--gold-2);
+  }
+
+  .mobile-app-nav a.active span,
+  .mobile-app-nav button:last-child span {
+    background: linear-gradient(135deg, var(--gold-2), var(--gold));
+    color: #130b07;
+  }
+
   .top-strip__inner,
   .section-head,
   .split-head,

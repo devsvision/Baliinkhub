@@ -174,7 +174,7 @@ function renderReviews() {
 }
 
 function setupEvents() {
-  $("[data-nav-toggle]").addEventListener("click", () => $("[data-nav-menu]").classList.toggle("open"));
+  $("[data-nav-toggle]")?.addEventListener("click", () => $("[data-nav-menu]").classList.toggle("open"));
 
   $("[data-search-form]").addEventListener("submit", (event) => {
     event.preventDefault();
