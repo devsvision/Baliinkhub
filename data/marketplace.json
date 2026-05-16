@@ -554,24 +554,32 @@
                     {
                         "artistId":  "art-01",
                         "name":  "Maya Collins",
+                        "country":  "Australia",
+                        "photo":  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format\u0026fit=crop\u0026w=160\u0026h=160\u0026q=80",
                         "rating":  5,
                         "comment":  "Found a Canggu artist fast. The listing was clear and marketplace booking made everything simple."
                     },
                     {
                         "artistId":  "art-02",
                         "name":  "Dewa Putra",
+                        "country":  "Indonesia",
+                        "photo":  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format\u0026fit=crop\u0026w=160\u0026h=160\u0026q=80",
                         "rating":  5,
                         "comment":  "The Balinese style category helped me compare portfolios without jumping between social pages."
                     },
                     {
                         "artistId":  "art-07",
                         "name":  "Anna Lee",
+                        "country":  "Singapore",
+                        "photo":  "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format\u0026fit=crop\u0026w=160\u0026h=160\u0026q=80",
                         "rating":  5,
                         "comment":  "Pricing, reviews, and area filters made the search feel professional and trustworthy."
                     },
                     {
                         "artistId":  "art-04",
                         "name":  "Oliver Grant",
+                        "country":  "United Kingdom",
+                        "photo":  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format\u0026fit=crop\u0026w=160\u0026h=160\u0026q=80",
                         "rating":  4,
                         "comment":  "Booked a fine line tattoo in Seminyak and loved how direct the request process felt."
                     }

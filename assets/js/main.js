@@ -38,6 +38,17 @@ const transportFees = {
   Amed: 380000
 };
 
+const tattooPortfolioImages = [
+  { keys: ["balinese", "ornamental", "ornament"], image: "assets/images/portfolio-balinese.svg" },
+  { keys: ["japanese", "irezumi", "dragon"], image: "assets/images/portfolio-japanese.svg" },
+  { keys: ["fine line", "micro", "line", "minimalist"], image: "assets/images/portfolio-fine-line.svg" },
+  { keys: ["blackwork", "blackout", "mandala", "dark art"], image: "assets/images/portfolio-blackwork.svg" },
+  { keys: ["realism", "realistic", "portrait", "grey", "color realism"], image: "assets/images/portfolio-realism.svg" },
+  { keys: ["geometric", "dotwork", "optical", "negative"], image: "assets/images/portfolio-geometric.svg" },
+  { keys: ["tribal", "polynesian", "marquesan", "celtic", "aztec", "cyber sigilism"], image: "assets/images/portfolio-tribal.svg" },
+  { keys: ["traditional", "old school", "neo-traditional", "flash", "folk"], image: "assets/images/portfolio-traditional.svg" }
+];
+
 document.addEventListener("DOMContentLoaded", async () => {
   setupSplash();
   state.marketplace = await fetchMarketplace();
@@ -88,6 +99,7 @@ function renderCategories() {
     .map(
       (category) => `
         <article class="category-card" data-quick-search="${escapeHTML(category.name)}">
+          <img src="${portfolioImageFor(category)}" alt="${escapeHTML(category.name)} tattoo portfolio" loading="lazy">
           <div>
             <h3>${escapeHTML(category.name)}</h3>
             <p>${category.count} Artists</p>
@@ -112,7 +124,7 @@ function renderServices(services) {
     .map(
       (service) => `
         <article class="card">
-          <img src="${service.image}" alt="${escapeHTML(service.title)}" loading="lazy">
+          <img src="${portfolioImageFor(service)}" alt="${escapeHTML(service.title)} tattoo portfolio" loading="lazy">
           <div class="card-body">
             <span class="pill">${escapeHTML(service.area)}</span>
             <h3>${escapeHTML(service.title)}</h3>
@@ -139,7 +151,7 @@ function renderPopular(style) {
     .map(
       (service) => `
         <article class="card">
-          <img src="${service.image}" alt="${escapeHTML(service.title)}" loading="lazy">
+          <img src="${portfolioImageFor(service)}" alt="${escapeHTML(service.title)} tattoo portfolio" loading="lazy">
           <div class="card-body">
             <h3>${escapeHTML(service.title)}</h3>
             <div class="rating-row"><span>${service.rating} (${service.reviews} Reviews)</span><strong>From ${formatIDR(service.price)}</strong></div>
@@ -178,7 +190,13 @@ function renderReviews() {
         <article class="review-card">
           <div class="stars">${"&#9733;".repeat(review.rating)}</div>
           <p>${escapeHTML(review.comment)}</p>
-          <strong>${escapeHTML(review.name)}</strong>
+          <div class="review-author">
+            <img src="${escapeHTML(review.photo)}" alt="${escapeHTML(review.name)} photo" loading="lazy" />
+            <span>
+              <strong>${escapeHTML(review.name)}</strong>
+              <small>${escapeHTML(review.country)}</small>
+            </span>
+          </div>
         </article>`
     )
     .join("");
@@ -283,7 +301,7 @@ function renderBookingWizard(form, services) {
   if (!form) return;
   const { selectedService, transport, total } = bookingTotals(services);
   form.querySelector("[data-booking-mini]").innerHTML = `
-    <img src="${selectedService.image}" alt="${escapeHTML(selectedService.title)}">
+    <img src="${portfolioImageFor(selectedService)}" alt="${escapeHTML(selectedService.title)} tattoo portfolio">
     <div><strong>${escapeHTML(selectedService.title)}</strong><span>${selectedService.rating.toFixed(1)} (${selectedService.reviews} reviews)</span></div>`;
   form.querySelector("[data-booking-steps]").innerHTML = bookingSteps.map((step, index) => {
     const number = index + 1;
@@ -306,7 +324,7 @@ function bookingStepTemplate(step, services, selectedService, transport, total) 
     return `<div class="service-mode-grid wizard-mode"><label class="${state.booking.serviceMode === "studio" ? "selected" : ""}"><input type="radio" name="serviceMode" value="studio" ${state.booking.serviceMode === "studio" ? "checked" : ""}><strong>In-Studio Experience</strong><small>Client visits the artist studio. No transport fee after service cost.</small></label><label class="${state.booking.serviceMode === "mobile" ? "selected" : ""}"><input type="radio" name="serviceMode" value="mobile" ${state.booking.serviceMode === "mobile" ? "checked" : ""}><strong>On-Demand / Mobile Service</strong><small>Artist goes to client location. Transport fee appears in cart.</small></label></div>`;
   }
   if (step === 3) {
-    return `<div class="wizard-service-grid">${services.map((service) => `<button type="button" class="${state.booking.serviceId === service.id ? "selected" : ""}" data-booking-service="${escapeHTML(service.id)}"><img src="${service.image}" alt="${escapeHTML(service.title)}"><span>${escapeHTML(service.title)}</span><strong>${formatIDR(service.price)}</strong></button>`).join("")}</div>`;
+    return `<div class="wizard-service-grid">${services.map((service) => `<button type="button" class="${state.booking.serviceId === service.id ? "selected" : ""}" data-booking-service="${escapeHTML(service.id)}"><img src="${portfolioImageFor(service)}" alt="${escapeHTML(service.title)} tattoo portfolio"><span>${escapeHTML(service.title)}</span><strong>${formatIDR(service.price)}</strong></button>`).join("")}</div>`;
   }
   if (step === 4) {
     return `<div class="date-time-grid"><div><p>Select date</p><div class="mini-calendar">${calendarTemplate()}</div></div><div><p>Select time</p><div class="time-grid">${["09:00","10:00","11:30","13:00","14:30","16:00","18:00","20:00"].map((time) => `<button type="button" class="${state.booking.selectedTime === time ? "selected" : ""}" data-booking-time="${time}">${time}</button>`).join("")}</div></div></div>`;
@@ -408,6 +426,12 @@ function showDashboardPreview(form) {
 
 function sanitize(value) {
   return String(value ?? "").trim().replace(/\s+/g, " ");
+}
+
+function portfolioImageFor(item) {
+  const text = [item.title, item.style, item.name].filter(Boolean).join(" ").toLowerCase();
+  const match = tattooPortfolioImages.find((entry) => entry.keys.some((key) => text.includes(key)));
+  return match?.image || item.image || "assets/images/portfolio-traditional.svg";
 }
 
 function escapeHTML(value) {

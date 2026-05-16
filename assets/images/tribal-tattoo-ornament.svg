@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 420" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="ember" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#3a2419"/>
+      <stop offset="58%" stop-color="#160c08"/>
+      <stop offset="100%" stop-color="#070403"/>
+    </radialGradient>
+    <pattern id="needle" width="220" height="220" patternUnits="userSpaceOnUse" patternTransform="rotate(12)">
+      <path d="M30 170 C70 104 110 104 150 170 C125 152 95 152 70 170 C92 124 108 124 130 170" fill="none" stroke="#d7ad54" stroke-width="5" stroke-linecap="round" opacity=".18"/>
+      <path d="M110 24 L140 88 L110 76 L80 88 Z" fill="none" stroke="#f4dc9d" stroke-width="4" stroke-linejoin="round" opacity=".12"/>
+    </pattern>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="2.4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="1600" height="420" fill="url(#ember)"/>
+  <rect width="1600" height="420" fill="url(#needle)"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round" filter="url(#softGlow)">
+    <path d="M-20 296 C150 96 300 96 470 296 C350 218 100 218 -20 296Z" stroke="#d7ad54" stroke-width="8" opacity=".24"/>
+    <path d="M1130 296 C1300 96 1450 96 1620 296 C1500 218 1250 218 1130 296Z" stroke="#d7ad54" stroke-width="8" opacity=".24"/>
+    <path d="M392 360 C520 180 646 180 774 360 C680 298 486 298 392 360Z" stroke="#f4dc9d" stroke-width="7" opacity=".2"/>
+    <path d="M826 360 C954 180 1080 180 1208 360 C1114 298 920 298 826 360Z" stroke="#f4dc9d" stroke-width="7" opacity=".2"/>
+    <path d="M800 50 C840 124 900 168 1000 182 C902 202 846 248 800 334 C754 248 698 202 600 182 C700 168 760 124 800 50Z" stroke="#d7ad54" stroke-width="9" opacity=".26"/>
+    <path d="M800 105 C828 150 866 176 928 186 C867 199 828 228 800 280 C772 228 733 199 672 186 C734 176 772 150 800 105Z" stroke="#f4dc9d" stroke-width="5" opacity=".22"/>
+    <path d="M80 52 C198 104 316 104 434 52 M1166 52 C1284 104 1402 104 1520 52" stroke="#f4dc9d" stroke-width="5" opacity=".16"/>
+    <path d="M80 368 C198 316 316 316 434 368 M1166 368 C1284 316 1402 316 1520 368" stroke="#f4dc9d" stroke-width="5" opacity=".16"/>
+  </g>
+</svg>

@@ -17,6 +17,17 @@ const transportFees = {
   Amed: 380000
 };
 
+const tattooPortfolioImages = [
+  { keys: ["balinese", "ornamental", "ornament"], image: "assets/images/portfolio-balinese.svg" },
+  { keys: ["japanese", "irezumi", "dragon"], image: "assets/images/portfolio-japanese.svg" },
+  { keys: ["fine line", "micro", "line", "minimalist"], image: "assets/images/portfolio-fine-line.svg" },
+  { keys: ["blackwork", "blackout", "mandala", "dark art"], image: "assets/images/portfolio-blackwork.svg" },
+  { keys: ["realism", "realistic", "portrait", "grey", "color realism"], image: "assets/images/portfolio-realism.svg" },
+  { keys: ["geometric", "dotwork", "optical", "negative"], image: "assets/images/portfolio-geometric.svg" },
+  { keys: ["tribal", "polynesian", "marquesan", "celtic", "aztec", "cyber sigilism"], image: "assets/images/portfolio-tribal.svg" },
+  { keys: ["traditional", "old school", "neo-traditional", "flash", "folk"], image: "assets/images/portfolio-traditional.svg" }
+];
+
 let activeServices = [];
 let activeAreas = [];
 const bookingState = {
@@ -219,13 +230,25 @@ function reviewTemplate(review) {
     <div class="studio-review">
       <div class="stars">${"&#9733;".repeat(review.rating)}</div>
       <p>${escapeHTML(review.comment)}</p>
-      <strong>${escapeHTML(review.name)}</strong>
+      <div class="review-author">
+        <img src="${escapeHTML(review.photo)}" alt="${escapeHTML(review.name)} photo" loading="lazy" />
+        <span>
+          <strong>${escapeHTML(review.name)}</strong>
+          <small>${escapeHTML(review.country)}</small>
+        </span>
+      </div>
     </div>`;
 }
 
 function portfolioImages(artist, services) {
-  const base = services.map((service) => service.image);
+  const base = services.map((service) => portfolioImageFor(service));
   return [...base, artist.cover, artist.image].slice(0, 6);
+}
+
+function portfolioImageFor(item) {
+  const text = [item.title, item.style, item.name].filter(Boolean).join(" ").toLowerCase();
+  const match = tattooPortfolioImages.find((entry) => entry.keys.some((key) => text.includes(key)));
+  return match?.image || item.image || "assets/images/portfolio-traditional.svg";
 }
 
 function mapEmbedUrl(artist) {
@@ -296,7 +319,7 @@ function bookingTotals() {
 function renderBookingWizard(form) {
   if (!form) return;
   const { selectedService, transport, total } = bookingTotals();
-  form.querySelector("[data-booking-mini]").innerHTML = `<img src="${selectedService.image}" alt="${escapeHTML(selectedService.title)}"><div><strong>${escapeHTML(selectedService.title)}</strong><span>${selectedService.rating.toFixed(1)} (${selectedService.reviews} reviews)</span></div>`;
+  form.querySelector("[data-booking-mini]").innerHTML = `<img src="${portfolioImageFor(selectedService)}" alt="${escapeHTML(selectedService.title)} tattoo portfolio"><div><strong>${escapeHTML(selectedService.title)}</strong><span>${selectedService.rating.toFixed(1)} (${selectedService.reviews} reviews)</span></div>`;
   form.querySelector("[data-booking-steps]").innerHTML = bookingSteps.map((step, index) => {
     const number = index + 1;
     const status = number < bookingState.step ? "done" : number === bookingState.step ? "active" : "";
@@ -313,7 +336,7 @@ function renderBookingWizard(form) {
 function bookingStepTemplate(step, selectedService, transport, total) {
   if (step === 1) return `<div class="wizard-section"><p>Choose where the client is located. This location is used to calculate mobile service transport cost.</p><div class="choice-grid">${activeAreas.map((area) => `<button type="button" class="${bookingState.clientLocation === area ? "selected" : ""}" data-booking-location="${escapeHTML(area)}">${escapeHTML(area)}</button>`).join("")}</div></div>`;
   if (step === 2) return `<div class="service-mode-grid wizard-mode"><label class="${bookingState.serviceMode === "studio" ? "selected" : ""}"><input type="radio" name="serviceMode" value="studio" ${bookingState.serviceMode === "studio" ? "checked" : ""}><strong>In-Studio Experience</strong><small>Client visits the artist studio. No transport fee after service cost.</small></label><label class="${bookingState.serviceMode === "mobile" ? "selected" : ""}"><input type="radio" name="serviceMode" value="mobile" ${bookingState.serviceMode === "mobile" ? "checked" : ""}><strong>On-Demand / Mobile Service</strong><small>Artist goes to client location. Transport fee appears in cart.</small></label></div>`;
-  if (step === 3) return `<div class="wizard-service-grid">${activeServices.map((service) => `<button type="button" class="${bookingState.serviceId === service.id ? "selected" : ""}" data-booking-service="${escapeHTML(service.id)}"><img src="${service.image}" alt="${escapeHTML(service.title)}"><span>${escapeHTML(service.title)}</span><strong>${formatIDR(service.price)}</strong></button>`).join("")}</div>`;
+  if (step === 3) return `<div class="wizard-service-grid">${activeServices.map((service) => `<button type="button" class="${bookingState.serviceId === service.id ? "selected" : ""}" data-booking-service="${escapeHTML(service.id)}"><img src="${portfolioImageFor(service)}" alt="${escapeHTML(service.title)} tattoo portfolio"><span>${escapeHTML(service.title)}</span><strong>${formatIDR(service.price)}</strong></button>`).join("")}</div>`;
   if (step === 4) return `<div class="date-time-grid"><div><p>Select date</p><div class="mini-calendar">${calendarTemplate()}</div></div><div><p>Select time</p><div class="time-grid">${["09:00","10:00","11:30","13:00","14:30","16:00","18:00","20:00"].map((time) => `<button type="button" class="${bookingState.selectedTime === time ? "selected" : ""}" data-booking-time="${time}">${time}</button>`).join("")}</div></div></div>`;
   if (step === 5) return `<div class="personal-grid"><aside class="booking-summary static"><div><span>Selected service</span><strong>${escapeHTML(selectedService.title)}</strong></div><div><span>Client location</span><strong>${escapeHTML(bookingState.clientLocation)}</strong></div><div><span>Service mode</span><strong>${modeLabel()}</strong></div></aside><div class="booking-fields"><input name="name" value="${escapeHTML(bookingState.name)}" placeholder="Full name"><input name="email" value="${escapeHTML(bookingState.email)}" placeholder="Email address"><input name="phone" value="${escapeHTML(bookingState.phone)}" placeholder="Phone number"><textarea name="notes" placeholder="Tattoo idea, placement, size, and reference notes">${escapeHTML(bookingState.notes)}</textarea></div></div>`;
   if (step === 6) return cartTemplate(selectedService, transport, total);
